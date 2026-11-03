@@ -1,0 +1,14 @@
+Tracko-TMS-Setup-x64.exe is not published yet.
+
+CI workflow is ready (.github/workflows/desktop-windows.yml) +
+scripts/publish-windows-from-ci.sh --latest
+
+Blocked on this org until GitHub Actions billing/spending limit is fixed.
+Meanwhile build on a Windows machine:
+  apps/desktop/scripts/build-windows.ps1
+then:
+  ./scripts/publish-windows-from-ci.sh path\to\Tracko-TMS-Setup-x64.exe
+  ./scripts/sync-install-site.sh && push tracko-install
+
+Public users: irm https://zyvorai.github.io/tracko-install/install.ps1 | iex
+(Mac remains the primary public path until Setup exists.)
