@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/og.png" alt="Tracko" width="920" />
+  <img src="./assets/logo-mark-512.png" alt="Tracko" width="128" />
 </p>
 
 <h1 align="center">Tracko</h1>
