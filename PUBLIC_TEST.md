@@ -2,7 +2,8 @@
 
 Welcome. This is a **public beta** of the Tracko desktop install. Source stays private; you get a binary via one command.
 
-**Site:** https://zyvorai.github.io/tracko-install/
+**Site:** https://zyvorai.github.io/tracko-install/  
+**Changelog:** [CHANGELOG.md](./CHANGELOG.md) · **Privacy:** [PRIVACY.md](./PRIVACY.md)
 
 ## 15-minute pass
 
