@@ -7,11 +7,8 @@
       "file": "Tracko-TMS-0.1.0-aarch64.dmg",
       "label": "Mac (Apple Silicon)",
       "command": "curl -fsSL {base}/install.sh | bash",
-      "notes": "One-command install. First launch asks for hub URL. Developer ID signed + notarized.",
-      "public_binary": false,
-      "notarized": true,
-      "signed": true,
-      "team": "NX667LTDQ2"
+      "notes": "One-command install. DMG is not linked on the public page.",
+      "public_binary": false
     },
     "windows-x64": {
       "file": "Tracko-TMS-Setup-x64.exe",
@@ -26,9 +23,16 @@
   "phones": {
     "scanner": "http://127.0.0.1:5176/?pair=SCAN-DEMO",
     "driver": "http://127.0.0.1:5175/",
-    "apk_status": "android_project_scaffolded_build_locally",
+    "apk_status": "debug_apk_published",
     "driver_apk": "Tracko-Driver.apk",
-    "scanner_apk": "Tracko-Scanner.apk"
+    "scanner_apk": "Tracko-Scanner.apk",
+    "driver_apk_published": true,
+    "scanner_apk_published": true,
+    "driver_ipa": "Tracko-Driver.ipa",
+    "scanner_ipa": "Tracko-Scanner.ipa",
+    "driver_ipa_published": true,
+    "scanner_ipa_published": true,
+    "ios_note": "Development/ad-hoc IPA \u2014 install via Xcode Devices / Apple Configurator; UDID must be registered on NX667LTDQ2"
   },
   "pilot": {
     "status": "ready",
@@ -37,6 +41,5 @@
     "desktop_build": "0.1.0",
     "windows": "pending_ci"
   },
-  "distribution": "install_command_only",
-  "vendor_uat": "VENDOR_UAT.md"
+  "distribution": "install_command_only"
 }
