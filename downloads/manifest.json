@@ -7,7 +7,7 @@
       "file": "Tracko-TMS-0.1.0-aarch64.dmg",
       "label": "Mac (Apple Silicon)",
       "command": "curl -fsSL {base}/install.sh | bash",
-      "notes": "One-command install. Developer ID signed + notarized. DMG is not linked on the public page.",
+      "notes": "One-command install. First launch asks for hub URL. Developer ID signed + notarized.",
       "public_binary": false,
       "notarized": true,
       "signed": true,
@@ -37,5 +37,6 @@
     "desktop_build": "0.1.0",
     "windows": "pending_ci"
   },
-  "distribution": "install_command_only"
+  "distribution": "install_command_only",
+  "vendor_uat": "VENDOR_UAT.md"
 }
