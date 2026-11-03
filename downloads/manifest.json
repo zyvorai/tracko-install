@@ -1,6 +1,7 @@
 {
   "product": "Tracko TMS",
   "version": "0.1.0",
+  "world_class": "0.3.0",
   "platforms": {
     "macos-arm64": {
       "file": "Tracko-TMS-0.1.0-aarch64.dmg",
@@ -10,25 +11,27 @@
       "public_binary": false
     },
     "windows-x64": {
+      "file": "Tracko-TMS-Setup-x64.exe",
       "label": "Windows 10/11 (x64)",
       "command": "irm {base}/install.ps1 | iex",
-      "notes": "Muse-style: one PowerShell command only. No public Setup.exe link on the install page. Binary is fetched by install.ps1.",
-      "public_binary": false
+      "notes": "Muse-style: one PowerShell command only. No public Setup.exe CTA. Binary fetched by install.ps1 when published.",
+      "public_binary": false,
+      "published": false
     }
   },
   "api_default": "http://localhost:8080",
   "phones": {
     "scanner": "http://127.0.0.1:5176/?pair=SCAN-DEMO",
-    "driver": "http://127.0.0.1:3001/",
-    "apk_status": "build_via_docs/MOBILE_RELEASE.md",
+    "driver": "http://127.0.0.1:5175/",
+    "apk_status": "not_in_public_beta",
     "driver_apk": "Tracko-Driver.apk",
     "scanner_apk": "Tracko-Scanner.apk"
   },
-  "world_class": "0.3.0",
   "pilot": {
     "status": "ready",
     "api_version": "0.3.0",
     "plan": "world_class",
+    "desktop_build": "0.1.0",
     "windows": "pending_ci"
   },
   "distribution": "install_command_only"

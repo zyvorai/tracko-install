@@ -1100,3 +1100,38 @@ html[data-theme="dark"] .install-card.glass {
   .hero-glow, .hero-mark-wrap::before, .btn-shine::after { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Focus + language */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.btn:focus-visible,
+.tab:focus-visible,
+.theme-toggle:focus-visible,
+.lang-toggle button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.lang-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 980px;
+  background: var(--tab-bg);
+}
+.lang-toggle button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: 980px;
+  cursor: pointer;
+}
+.lang-toggle button.active {
+  background: var(--text);
+  color: var(--bg);
+}

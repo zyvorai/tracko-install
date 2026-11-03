@@ -1,3 +1,9 @@
+## 0.3.1 — Public beta polish
+- EN/हि language toggle, manifest-driven versions
+- Tab a11y, focus rings, Linux honesty
+- Desktop/web/driver/scanner favicons + sidebar logo
+- CI builds scanner; mobile release docs; sync-install-site.sh
+
 # Changelog
 
 ## 0.3.0 — Public beta

@@ -49,11 +49,11 @@ try {
   Invoke-WebRequest -Uri $Url -OutFile $SetupPath -UseBasicParsing
 } catch {
   Write-Host ""
-  Write-Host "Could not download $SetupName" -ForegroundColor Red
-  Write-Host "Build it on Windows (or GitHub Actions desktop-windows), then place it at:"
-  Write-Host "  site/downloads/$SetupName"
-  Write-Host "  tracko-install/downloads/$SetupName"
-  Write-Host "Script: apps/desktop/scripts/build-windows.ps1"
+  Write-Host "Windows Setup is not published yet for public beta." -ForegroundColor Yellow
+  Write-Host "Mac is the primary install path today:"
+  Write-Host "  curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash"
+  Write-Host "When Setup.exe is published, re-run this script — it will fetch automatically."
+  Write-Host "FAQ: https://zyvorai.github.io/tracko-install/#faq"
   throw
 }
 

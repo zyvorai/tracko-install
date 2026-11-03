@@ -22,11 +22,13 @@
   <meta property="og:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Tracko control tower — public beta" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tracko — Public beta" />
   <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
-  <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded-dark.png" />
+  <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded.png" />
+  <meta name="twitter:image:alt" content="Tracko control tower — public beta" />
 
   <script>
     (function () {
@@ -85,13 +87,13 @@
   <a class="skip" href="#install">Skip to install</a>
 
   <div class="beta">
-    Public beta · v0.3.0 · Mac live ·
+    Public beta · hub 0.3.0 · desktop 0.1.0 ·
     <a href="./CHANGELOG.md">What’s new</a> ·
     <a href="#status">Status</a>
   </div>
 
   <header class="nav">
-    <a class="nav-brand" href="#" aria-label="Tracko home">
+    <a class="nav-brand" href="./" aria-label="Tracko home">
       <img class="nav-mark" src="./assets/logo-mark.svg" width="28" height="28" alt="" />
       <span>Tracko</span>
     </a>
@@ -103,6 +105,10 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="hi" aria-pressed="false">हि</button>
+      </div>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance">
         <span class="icon-moon" aria-hidden="true">◐</span>
         <span class="icon-sun" aria-hidden="true">☀</span>
@@ -177,15 +183,17 @@
 
       <div class="install-card glass">
         <div class="install-tabs" role="tablist" aria-label="Platform">
-          <button class="tab active" data-os="mac" type="button">Mac</button>
-          <button class="tab" data-os="win" type="button">Windows</button>
-          <button class="tab" data-os="linux" type="button">Linux</button>
+          <button class="tab active" id="tab-mac" role="tab" data-os="mac" type="button" aria-selected="true" aria-controls="install-panel" tabindex="0">Mac</button>
+          <button class="tab" id="tab-win" role="tab" data-os="win" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Windows</button>
+          <button class="tab" id="tab-linux" role="tab" data-os="linux" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Linux</button>
         </div>
-        <div class="cmd-row">
-          <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
-          <button class="btn btn-shine" id="copy-btn" type="button">Copy</button>
+        <div id="install-panel" role="tabpanel" aria-labelledby="tab-mac">
+          <div class="cmd-row">
+            <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
+            <button class="btn btn-shine" id="copy-btn" type="button">Copy</button>
+          </div>
+          <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
         </div>
-        <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
       </div>
     </section>
 
@@ -275,7 +283,8 @@
         <div class="spec-block">
           <h3>In this beta</h3>
           <dl>
-            <div><dt>Version</dt><dd>API / plan 0.3.0 · world_class</dd></div>
+            <div><dt>Hub</dt><dd id="spec-api-version">API / plan 0.3.0 · world_class</dd></div>
+            <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.1.0</dd></div>
             <div><dt>Install</dt><dd>One command · no public .exe CTA</dd></div>
             <div><dt>Realtime</dt><dd>SSE <code>/api/v1/events</code></dd></div>
             <div><dt>Store</dt><dd>JSON + optional Postgres SoT</dd></div>
@@ -353,7 +362,7 @@
         <div class="status ok"><strong>Mac install</strong><span>Live via install.sh</span></div>
         <div class="status ok"><strong>GH Pages</strong><span>Marketing + scripts</span></div>
         <div class="status ok"><strong>Realtime SSE</strong><span>Hub feature</span></div>
-        <div class="status warn"><strong>Windows Setup</strong><span>Script ready · artifact pending</span></div>
+        <div class="status warn" id="status-windows"><strong>Windows Setup</strong><span>Script ready · artifact pending</span></div>
         <div class="status warn"><strong>India live rails</strong><span>Demo until credentials</span></div>
         <div class="status ok"><strong>Private source</strong><span>By design</span></div>
       </div>
