@@ -1,13 +1,15 @@
+const PAGES = 'https://zyvorai.github.io/tracko-install';
+
 const cmds = {
-  mac: 'curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | TRACKO_BASE_URL=https://zyvorai.github.io/tracko-install bash',
-  linux: 'curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | TRACKO_BASE_URL=https://zyvorai.github.io/tracko-install bash',
-  win: 'irm https://zyvorai.github.io/tracko-install/install.ps1 | iex',
+  mac: `curl -fsSL ${PAGES}/install.sh | bash`,
+  linux: `curl -fsSL ${PAGES}/install.sh | bash`,
+  win: `irm ${PAGES}/install.ps1 | iex`,
 };
 
 const hints = {
-  mac: 'Available for macOS Apple Silicon. DMG also downloadable below.',
+  mac: 'macOS Apple Silicon. Installs to /Applications and launches.',
   linux: 'Linux AppImage coming next — script will detect and guide you.',
-  win: 'Windows MSI planned — PowerShell install stub for private hosting.',
+  win: 'Windows installer planned — PowerShell stub for private hosting.',
 };
 
 function setOs(os) {
@@ -44,16 +46,3 @@ document.getElementById('copy-btn')?.addEventListener('click', (e) => {
 document.getElementById('copy-btn-2')?.addEventListener('click', (e) => {
   copyText(document.getElementById('install-cmd-2').textContent, e.currentTarget);
 });
-
-// If opened via a real host, rewrite install URLs to current origin
-(() => {
-  const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
-  if (!/^https?:\/\/127\.0\.0\.1:8787\/?$/.test(window.location.origin + '/')) {
-    const origin = base.replace(/\/$/, '');
-    const sh = `${origin}/install.sh`;
-    cmds.mac = `curl -fsSL ${sh} | TRACKO_BASE_URL=${origin} bash`;
-    cmds.linux = `curl -fsSL ${sh} | TRACKO_BASE_URL=${origin} bash`;
-    cmds.win = `irm ${origin}/install.ps1 | iex`;
-    setOs(document.querySelector('.tab.active')?.dataset.os || 'mac');
-  }
-})();

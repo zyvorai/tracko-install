@@ -2,7 +2,7 @@
 # Tracko private installer — downloads binary only. Does not clone source.
 set -euo pipefail
 
-# Override when hosting privately: TRACKO_BASE_URL=https://downloads.your-corp.internal
+# Override: TRACKO_BASE_URL=https://your-private-cdn.example
 BASE_URL="${TRACKO_BASE_URL:-https://zyvorai.github.io/tracko-install}"
 BASE_URL="${BASE_URL%/}"
 

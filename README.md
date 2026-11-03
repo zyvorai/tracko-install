@@ -1,28 +1,35 @@
-# Tracko
+<p align="center">
+  <img src="./assets/og.png" alt="Tracko" width="800" />
+</p>
 
-**Private product. Public install only.**
+<h1 align="center">Tracko</h1>
 
-This repository hosts the Tracko download page, installer scripts, and macOS builds.
-**Source code is not published here.**
+<p align="center">
+  <strong>Logistics TMS for India.</strong> Public install. Private source.
+</p>
 
-## Install (macOS Apple Silicon)
+<p align="center">
+  <a href="https://zyvorai.github.io/tracko-install/"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-live-0071e3?style=flat-square" /></a>
+  <a href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg"><img alt="macOS" src="https://img.shields.io/badge/macOS-Apple%20Silicon-black?style=flat-square" /></a>
+  <img alt="Source" src="https://img.shields.io/badge/source-private-6e6e73?style=flat-square" />
+</p>
+
+## Install
 
 ```bash
 curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash
 ```
 
-Or download the [DMG](https://zyvorai.github.io/tracko-install/downloads/Tracko-TMS-0.1.0-aarch64.dmg).
+Or open the site: **[zyvorai.github.io/tracko-install](https://zyvorai.github.io/tracko-install/)**
 
-## Site
+[Download DMG](https://zyvorai.github.io/tracko-install/downloads/Tracko-TMS-0.1.0-aarch64.dmg)
 
-GitHub Pages: [https://zyvorai.github.io/tracko-install](https://zyvorai.github.io/tracko-install)
-
-## What’s in this repo
+## What’s here
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Install landing |
-| `install.sh` | One-line Mac installer (downloads DMG only) |
-| `downloads/` | Prebuilt desktop app (`.dmg`) |
+| Landing + OG image | Apple-style install page & social preview |
+| `install.sh` | Downloads the Mac DMG only |
+| `downloads/` | Prebuilt desktop app |
 
-No application source, backends, or private keys.
+**No application source** is published in this repository.
