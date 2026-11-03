@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Tracko — Logistics TMS for Mac</title>
-  <meta name="description" content="Tracko is a native logistics TMS for India’s freight reality. Install the Mac app in one command — GST, e-Way, SIM, FASTag, RFQ, and control tower." />
-  <meta name="keywords" content="Tracko, TMS, logistics, freight, India, GST, e-Way bill, FASTag, Mac, desktop, install, Zyvor" />
+  <title>Tracko — Logistics TMS for Mac & Windows</title>
+  <meta name="description" content="Tracko is a native logistics TMS for India’s freight reality. Install on Mac or Windows in one command — GST, e-Way, SIM, FASTag, RFQ, and control tower." />
+  <meta name="keywords" content="Tracko, TMS, logistics, freight, India, GST, e-Way bill, FASTag, Mac, Windows, desktop, install, Zyvor" />
   <meta name="author" content="Zyvor" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
@@ -23,7 +23,7 @@
   <meta property="og:locale" content="en_IN" />
   <meta property="og:url" content="http://175.110.122.71:8787/" />
   <meta property="og:title" content="Tracko" />
-  <meta property="og:description" content="Logistics TMS for India. One command to install on Mac." />
+  <meta property="og:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
   <meta property="og:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
@@ -38,7 +38,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tracko" />
-  <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac." />
+  <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
   <meta name="twitter:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
   <meta name="twitter:image:alt" content="Tracko — dark social preview" />
 
@@ -67,10 +67,10 @@
     "@type": "SoftwareApplication",
     "name": "Tracko",
     "applicationCategory": "BusinessApplication",
-    "operatingSystem": "macOS",
+    "operatingSystem": "macOS, Windows 10, Windows 11",
     "description": "Logistics TMS for India’s freight operations — control tower, GST, e-Way, FASTag.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-    "downloadUrl": "http://175.110.122.71:8787/downloads/Tracko-TMS-0.1.0-aarch64.dmg",
+    "installUrl": "http://175.110.122.71:8787/install.sh",
     "image": "http://175.110.122.71:8787/assets/og.png",
     "publisher": { "@type": "Organization", "name": "Zyvor" }
   }
@@ -92,20 +92,23 @@
         <span class="icon-moon" aria-hidden="true">◐</span>
         <span class="icon-sun" aria-hidden="true">☀</span>
       </button>
-      <a class="btn btn-small" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download</a>
+      <a class="btn btn-small" href="#install">Install</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow animate">Mac · Apple Silicon</p>
+      <p class="eyebrow animate" id="hero-eyebrow">Mac · Windows</p>
       <h1 class="brand animate">Tracko</h1>
       <p class="lede animate">The logistics TMS that feels inevitable.</p>
-      <p class="sub animate">GST. e-Way. SIM. FASTag. RFQ. One control tower for India’s road freight.</p>
+      <p class="sub animate">GST. e-Way. SIM. FASTag. RFQ. One control tower for India’s road freight — on Mac and Windows.</p>
 
-      <div class="cta-row animate">
-        <a class="btn" href="#install">Install</a>
-        <a class="btn ghost" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download for Mac</a>
+      <div class="install-card compact animate" style="margin-top: 1.5rem; max-width: 42rem;">
+        <div class="cmd-row">
+          <code id="hero-cmd">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
+          <button class="btn" id="hero-copy" type="button">Copy install command</button>
+        </div>
+        <p class="hint" style="margin-top: 0.75rem;">Available for macOS and Windows.</p>
       </div>
     </section>
 
@@ -130,28 +133,24 @@
     </section>
 
     <section class="strip">
-      <p>Built private. Shared as a download — never as source.</p>
+      <p>Built private. Shared as an install — never as source. Never as a public .exe.</p>
     </section>
 
     <section class="section install-section" id="install">
-      <h2>Install. It’s that simple.</h2>
-      <p class="section-lead">One line in Terminal. Or grab the DMG.</p>
+      <h2>One command to install</h2>
+      <p class="section-lead">Copy the line for your OS. The installer fetches the binary — no Setup.exe on this page.</p>
 
       <div class="install-card">
         <div class="install-tabs" role="tablist" aria-label="Platform">
           <button class="tab active" data-os="mac" type="button">Mac</button>
-          <button class="tab" data-os="linux" type="button">Linux</button>
           <button class="tab" data-os="win" type="button">Windows</button>
+          <button class="tab" data-os="linux" type="button">Linux</button>
         </div>
         <div class="cmd-row">
           <code id="install-cmd">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
           <button class="btn" id="copy-btn" type="button">Copy</button>
         </div>
         <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download .dmg</a>
       </div>
     </section>
 
@@ -180,13 +179,13 @@
       <div class="tiers">
         <article class="tier">
           <h3>Desktop</h3>
-          <p class="price">Native Mac</p>
-          <p>Full control tower. One-command install.</p>
+          <p class="price">Mac + Windows</p>
+          <p>Full control tower. One-command install on either OS.</p>
         </article>
         <article class="tier featured">
           <h3>Ops suite</h3>
           <p class="price">Recommended</p>
-          <p>Desktop + portal + driver POD against your private API.</p>
+          <p>Desktop + portal + phone Scanner/Driver against your private API.</p>
         </article>
         <article class="tier">
           <h3>Enterprise</h3>

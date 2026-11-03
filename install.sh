@@ -15,8 +15,11 @@ echo "  base=$BASE_URL"
 echo
 
 if [[ "$OS" != "Darwin" ]]; then
-  echo "This build of the installer currently ships a macOS Apple Silicon DMG."
-  echo "Place your Linux/Windows artifacts under site/downloads/ and extend this script."
+  echo "This script installs the macOS Apple Silicon DMG."
+  echo "On Windows, open PowerShell and run:"
+  echo "  irm ${BASE_URL}/install.ps1 | iex"
+  echo "Optional hub API:"
+  echo "  \$env:TRACKO_API_URL='http://YOUR_SERVER:8080'; irm ${BASE_URL}/install.ps1 | iex"
   exit 1
 fi
 
