@@ -37,12 +37,15 @@ echo "Downloading $URL"
 curl -fL --progress-bar "$URL" -o "$DMG_PATH"
 
 echo "Mounting DMG…"
-MOUNT_POINT="$(hdiutil attach "$DMG_PATH" -nobrowse | awk 'END {print $NF}')"
-APP_SRC="$(find "$MOUNT_POINT" -maxdepth 1 -name '*.app' | head -1)"
+# Fixed mountpoint avoids awk breaking on volume names with spaces (e.g. "Tracko TMS").
+MOUNT_POINT="$TMP_DIR/mnt"
+mkdir -p "$MOUNT_POINT"
+hdiutil attach "$DMG_PATH" -nobrowse -mountpoint "$MOUNT_POINT" >/dev/null
+APP_SRC="$(find "$MOUNT_POINT" -maxdepth 1 -name '*.app' -print -quit)"
 
-if [[ -z "$APP_SRC" ]]; then
+if [[ -z "$APP_SRC" || ! -d "$APP_SRC" ]]; then
   echo "Could not find .app inside DMG"
-  hdiutil detach "$MOUNT_POINT" >/dev/null || true
+  hdiutil detach "$MOUNT_POINT" >/dev/null 2>&1 || true
   exit 1
 fi
 
@@ -52,7 +55,7 @@ rm -rf "/Applications/$APP_NAME"
 cp -R "$APP_SRC" "/Applications/$APP_NAME"
 xattr -cr "/Applications/$APP_NAME" 2>/dev/null || true
 
-hdiutil detach "$MOUNT_POINT" >/dev/null || true
+hdiutil detach "$MOUNT_POINT" >/dev/null 2>&1 || true
 rm -rf "$TMP_DIR"
 
 echo
