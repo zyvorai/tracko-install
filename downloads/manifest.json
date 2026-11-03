@@ -23,7 +23,7 @@
   "phones": {
     "scanner": "http://127.0.0.1:5176/?pair=SCAN-DEMO",
     "driver": "http://127.0.0.1:5175/",
-    "apk_status": "not_in_public_beta",
+    "apk_status": "android_project_scaffolded_build_locally",
     "driver_apk": "Tracko-Driver.apk",
     "scanner_apk": "Tracko-Scanner.apk"
   },
