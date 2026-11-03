@@ -1,4 +1,4 @@
-const PAGES = 'http://175.110.122.71:8787';
+const PAGES = 'https://zyvorai.github.io/tracko-install';
 
 const cmds = {
   mac: `curl -fsSL ${PAGES}/install.sh | bash`,
@@ -7,9 +7,9 @@ const cmds = {
 };
 
 const hints = {
-  mac: 'macOS Apple Silicon. One command installs and launches Tracko.',
+  mac: 'macOS Apple Silicon. Installs to /Applications and launches.',
   linux: 'Linux AppImage next — script detects OS and guides you.',
-  win: 'Windows 10/11 x64. One PowerShell line — no Setup.exe download on this page. Set TRACKO_API_URL for your hub.',
+  win: 'Windows 10/11 x64. One PowerShell line. Setup.exe is fetched by the script when published — never linked as a public CTA.',
 };
 
 function setOs(os) {
@@ -23,11 +23,21 @@ function setOs(os) {
   });
   const hint = document.getElementById('os-hint');
   if (hint) hint.textContent = hints[os] || hints.mac;
+  const heroHint = document.getElementById('hero-hint');
+  if (heroHint) {
+    heroHint.textContent =
+      os === 'win'
+        ? 'Windows · PowerShell · no public .exe'
+        : os === 'linux'
+          ? 'Linux · coming soon'
+          : 'macOS Apple Silicon · no public .exe';
+  }
   const eyebrow = document.getElementById('hero-eyebrow');
   if (eyebrow) {
     eyebrow.textContent =
       os === 'win' ? 'Windows · x64' : os === 'linux' ? 'Linux · coming' : 'Mac · Apple Silicon';
   }
+  window.__trackoCmd = cmd;
 }
 
 function detectOs() {
@@ -59,10 +69,7 @@ document.getElementById('copy-btn-2')?.addEventListener('click', (e) => {
   copyText(document.getElementById('install-cmd-2').textContent, e.currentTarget);
 });
 document.getElementById('hero-copy')?.addEventListener('click', (e) => {
-  const cmd = document.getElementById('hero-cmd')?.textContent
-    || document.getElementById('install-cmd')?.textContent
-    || cmds.mac;
-  copyText(cmd, e.currentTarget);
+  copyText(window.__trackoCmd || cmds[detectOs()], e.currentTarget);
 });
 
 setOs(detectOs());
@@ -76,9 +83,6 @@ function currentTheme() {
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   try { localStorage.setItem('tracko-theme', theme); } catch {}
-  const meta = document.querySelector('meta[name="theme-color"]:not([media])')
-    || document.querySelector('meta[name="theme-color"]');
-  if (meta && !meta.media) meta.content = theme === 'dark' ? '#000000' : '#f5f5f7';
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
 }

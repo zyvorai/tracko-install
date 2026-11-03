@@ -1,6 +1,6 @@
 # Tracko Windows installer — downloads NSIS Setup only (no source).
 # Usage (elevated PowerShell optional):
-#   irm http://175.110.122.71:8787/install.ps1 | iex
+#   irm https://zyvorai.github.io/tracko-install/install.ps1 | iex
 # Or:
 #   powershell -ExecutionPolicy Bypass -File .\install.ps1
 # Override CDN:  $env:TRACKO_BASE_URL = "https://your-cdn"
@@ -8,7 +8,7 @@
 
 $ErrorActionPreference = "Stop"
 
-$Base = if ($env:TRACKO_BASE_URL) { $env:TRACKO_BASE_URL.TrimEnd('/') } else { "http://175.110.122.71:8787" }
+$Base = if ($env:TRACKO_BASE_URL) { $env:TRACKO_BASE_URL.TrimEnd('/') } else { "https://zyvorai.github.io/tracko-install" }
 $ApiUrl = if ($env:TRACKO_API_URL) { $env:TRACKO_API_URL.TrimEnd('/') } else { "http://localhost:8080" }
 $SetupName = "Tracko-TMS-Setup-x64.exe"
 $Url = "$Base/downloads/$SetupName"

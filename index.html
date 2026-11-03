@@ -3,44 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Tracko — Logistics TMS for Mac & Windows</title>
-  <meta name="description" content="Tracko is a native logistics TMS for India’s freight reality. Install on Mac or Windows in one command — GST, e-Way, SIM, FASTag, RFQ, and control tower." />
-  <meta name="keywords" content="Tracko, TMS, logistics, freight, India, GST, e-Way bill, FASTag, Mac, Windows, desktop, install, Zyvor" />
-  <meta name="author" content="Zyvor" />
+  <title>Tracko — Public beta</title>
+  <meta name="description" content="Tracko is the logistics TMS for India’s freight. Public beta — one command to install on Mac or Windows. GST, e-Way, SIM, FASTag, RFQ, live control tower." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="application-name" content="Tracko" />
   <meta name="apple-mobile-web-app-title" content="Tracko" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="canonical" href="http://175.110.122.71:8787/" />
+  <link rel="canonical" href="https://zyvorai.github.io/tracko-install/" />
 
-  <!-- Open Graph (light + dark social images) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Tracko" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:url" content="http://175.110.122.71:8787/" />
-  <meta property="og:title" content="Tracko" />
-  <meta property="og:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
-  <meta property="og:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="https://zyvorai.github.io/tracko-install/" />
+  <meta property="og:title" content="Tracko — Public beta" />
+  <meta property="og:description" content="Logistics TMS for India. One command to install. Private source." />
+  <meta property="og:image" content="https://zyvorai.github.io/tracko-install/assets/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Tracko — dark" />
-  <meta property="og:image" content="http://175.110.122.71:8787/assets/og.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Tracko — Logistics TMS for India" />
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tracko" />
+  <meta name="twitter:title" content="Tracko — Public beta" />
   <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
-  <meta name="twitter:image" content="http://175.110.122.71:8787/assets/og-dark.png" />
-  <meta name="twitter:image:alt" content="Tracko — dark social preview" />
+  <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og-dark.png" />
 
   <script>
     (function () {
@@ -53,12 +38,6 @@
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
-  <link rel="image_src" href="./assets/og.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- Inter Tight is close to Apple marketing; system SF used as primary -->
   <link rel="stylesheet" href="./styles.css" />
 
   <script type="application/ld+json">
@@ -68,10 +47,10 @@
     "name": "Tracko",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "macOS, Windows 10, Windows 11",
-    "description": "Logistics TMS for India’s freight operations — control tower, GST, e-Way, FASTag.",
+    "description": "Logistics TMS for India’s freight — control tower, GST, e-Way, FASTag. Public beta.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-    "installUrl": "http://175.110.122.71:8787/install.sh",
-    "image": "http://175.110.122.71:8787/assets/og.png",
+    "installUrl": "https://zyvorai.github.io/tracko-install/install.sh",
+    "image": "https://zyvorai.github.io/tracko-install/assets/og.png",
     "publisher": { "@type": "Organization", "name": "Zyvor" }
   }
   </script>
@@ -79,16 +58,21 @@
 <body>
   <a class="skip" href="#install">Skip to install</a>
 
+  <div class="beta">
+    Public beta · Mac install live · Windows via PowerShell when Setup is published ·
+    <a href="#test">How to test</a>
+  </div>
+
   <header class="nav">
     <a class="nav-brand" href="#">Tracko</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#install">Install</a>
       <a href="#film">Overview</a>
-      <a href="#capabilities">Why Tracko</a>
-      <a href="#editions">Editions</a>
+      <a href="#install">Install</a>
+      <a href="#why">Why Tracko</a>
+      <a href="#test">Public test</a>
     </nav>
     <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle appearance">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance">
         <span class="icon-moon" aria-hidden="true">◐</span>
         <span class="icon-sun" aria-hidden="true">☀</span>
       </button>
@@ -100,45 +84,29 @@
     <section class="hero">
       <p class="eyebrow animate" id="hero-eyebrow">Mac · Windows</p>
       <h1 class="brand animate">Tracko</h1>
-      <p class="lede animate">The logistics TMS that feels inevitable.</p>
-      <p class="sub animate">GST. e-Way. SIM. FASTag. RFQ. One control tower for India’s road freight — on Mac and Windows.</p>
-
-      <div class="install-card compact animate" style="margin-top: 1.5rem; max-width: 42rem;">
-        <div class="cmd-row">
-          <code id="hero-cmd">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
-          <button class="btn" id="hero-copy" type="button">Copy install command</button>
-        </div>
-        <p class="hint" style="margin-top: 0.75rem;">Available for macOS and Windows.</p>
+      <p class="lede animate">Freight, finally clear.</p>
+      <p class="sub animate">One control tower for India’s road logistics — GST, e-Way, SIM, FASTag, RFQ. Install in a single line.</p>
+      <div class="cta-row animate">
+        <button class="btn" id="hero-copy" type="button">Copy install command</button>
+        <a class="btn btn-ghost" href="#install">Learn more</a>
       </div>
+      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">macOS Apple Silicon · no public .exe</p>
     </section>
 
     <section class="film" id="film" aria-label="Product">
-      <div class="film-frame animate">
-        <img
-          class="og-hero light-only"
-          src="./assets/og.png"
-          width="1200"
-          height="630"
-          alt="Tracko control tower on Mac"
-          fetchpriority="high"
-        />
-        <img
-          class="og-hero dark-only"
-          src="./assets/og-dark.png"
-          width="1200"
-          height="630"
-          alt="Tracko control tower on Mac — dark"
-        />
+      <div class="film-frame">
+        <img class="og-hero light-only" src="./assets/og.png" width="1200" height="630" alt="Tracko control tower" fetchpriority="high" />
+        <img class="og-hero dark-only" src="./assets/og-dark.png" width="1200" height="630" alt="Tracko control tower — dark" />
       </div>
     </section>
 
     <section class="strip">
-      <p>Built private. Shared as an install — never as source. Never as a public .exe.</p>
+      <p>Built private. Shared as an install — never as source.</p>
     </section>
 
-    <section class="section install-section" id="install">
-      <h2>One command to install</h2>
-      <p class="section-lead">Copy the line for your OS. The installer fetches the binary — no Setup.exe on this page.</p>
+    <section class="section" id="install">
+      <h2>One command. That’s it.</h2>
+      <p class="section-lead">Muse-style install — copy the line for your OS. The script fetches the binary. No Setup.exe on this page.</p>
 
       <div class="install-card">
         <div class="install-tabs" role="tablist" aria-label="Platform">
@@ -147,29 +115,31 @@
           <button class="tab" data-os="linux" type="button">Linux</button>
         </div>
         <div class="cmd-row">
-          <code id="install-cmd">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
+          <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
           <button class="btn" id="copy-btn" type="button">Copy</button>
         </div>
         <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
       </div>
     </section>
 
-    <section class="section" id="capabilities">
-      <h2>Designed around the trip.</h2>
-      <p class="section-lead">Everything your ops stack juggles — in one record.</p>
-      <div class="feature-rows">
-        <article class="feature">
-          <h3>Control tower</h3>
-          <p>Live lanes, exceptions, and settlement in a single ops surface — Apple-clean, freight-serious.</p>
-        </article>
-        <article class="feature">
-          <h3>India-native</h3>
-          <p>GST splits, e-Way Part-B, SIM + FASTag + GPS, Tally export. Built for how freight actually moves here.</p>
-        </article>
-        <article class="feature">
-          <h3>Auditable</h3>
-          <p>Approve → pay settlements, document vault, and a trail finance can trust.</p>
-        </article>
+    <section class="section band" id="why">
+      <div class="inner">
+        <h2>Designed around the trip.</h2>
+        <p class="section-lead">Everything your ops stack juggles — in one record.</p>
+        <div class="feature-rows">
+          <article class="feature">
+            <h3>Control tower</h3>
+            <p>Live lanes, exceptions, and settlement in a single ops surface — clean enough for a boardroom, sharp enough for a dock.</p>
+          </article>
+          <article class="feature">
+            <h3>India-native</h3>
+            <p>GST splits, e-Way Part-B, SIM + FASTag + GPS, Tally export. Built for how freight actually moves here.</p>
+          </article>
+          <article class="feature">
+            <h3>Realtime</h3>
+            <p>SSE fleet positions, alerts, and dispatch — map that moves while you watch.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -185,21 +155,48 @@
         <article class="tier featured">
           <h3>Ops suite</h3>
           <p class="price">Recommended</p>
-          <p>Desktop + portal + phone Scanner/Driver against your private API.</p>
+          <p>Desktop + portal + phone Scanner / Driver against your private API hub.</p>
         </article>
         <article class="tier">
-          <h3>Enterprise</h3>
-          <p class="price">Private</p>
-          <p>Your host. Your CDN. Binaries only — source stays closed.</p>
+          <h3>Private hub</h3>
+          <p class="price">Your LAN / VPS</p>
+          <p>Postgres SoT, JWT, Muse install page. Source stays closed.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="test">
+      <h2>Public test checklist</h2>
+      <p class="section-lead">Fifteen minutes. Tell us what broke.</p>
+      <ul class="test-list">
+        <li>
+          Install on Mac with the command above
+          <span>Allow Gatekeeper if prompted · app opens in /Applications</span>
+        </li>
+        <li>
+          Server / Settings → point at your hub API
+          <span>Default <code>http://127.0.0.1:8080</code> · or your LAN hub</span>
+        </li>
+        <li>
+          Open Control Tower · watch the live map
+          <span>Realtime SSE · GPS sim ticks every ~2s in demo hubs</span>
+        </li>
+        <li>
+          Create a shipment · assign · open Alerts
+          <span>India rails may still be demo until credentials are set</span>
+        </li>
+      </ul>
+      <div class="cta-row" style="margin-top: 2rem;">
+        <a class="btn" href="#install">Install Tracko</a>
+        <a class="btn btn-ghost" href="https://github.com/zyvorai/tracko-install">GitHub</a>
       </div>
     </section>
 
     <section class="section bare">
       <h2>Ready when you are.</h2>
-      <div class="install-card compact">
+      <div class="install-card" style="margin-top: 1.5rem;">
         <div class="cmd-row">
-          <code id="install-cmd-2">curl -fsSL http://175.110.122.71:8787/install.sh | bash</code>
+          <code id="install-cmd-2">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
           <button class="btn" id="copy-btn-2" type="button">Copy</button>
         </div>
       </div>
@@ -207,8 +204,8 @@
   </main>
 
   <footer class="footer">
-    <span>Tracko by Zyvor</span>
-    <span>Public install · private source</span>
+    <span>Tracko by <a href="https://github.com/zyvorai">Zyvor</a> · Public beta</span>
+    <span>Install only · source private · <a href="./downloads/manifest.json">manifest</a></span>
   </footer>
 
   <script src="./main.js"></script>
