@@ -7,8 +7,11 @@
       "file": "Tracko-TMS-0.1.0-aarch64.dmg",
       "label": "Mac (Apple Silicon)",
       "command": "curl -fsSL {base}/install.sh | bash",
-      "notes": "One-command install. DMG is not linked on the public page.",
-      "public_binary": false
+      "notes": "One-command install. Developer ID signed + notarized. DMG is not linked on the public page.",
+      "public_binary": false,
+      "notarized": true,
+      "signed": true,
+      "team": "NX667LTDQ2"
     },
     "windows-x64": {
       "file": "Tracko-TMS-Setup-x64.exe",
