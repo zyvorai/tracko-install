@@ -47,11 +47,25 @@ function detectOs() {
   return 'mac';
 }
 
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg || 'Copied to clipboard';
+  el.hidden = false;
+  requestAnimationFrame(() => el.classList.add('show'));
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(() => { el.hidden = true; }, 250);
+  }, 1600);
+}
+
 async function copyText(text, btn) {
   try {
     await navigator.clipboard.writeText(text);
     const prev = btn.textContent;
     btn.textContent = 'Copied';
+    showToast('Copied — paste in Terminal');
     setTimeout(() => { btn.textContent = prev; }, 1400);
   } catch {
     btn.textContent = 'Select & copy';
@@ -90,3 +104,35 @@ function applyTheme(theme) {
 document.getElementById('theme-toggle')?.addEventListener('click', () => {
   applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 });
+
+/* Scroll reveal */
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && revealEls.length) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+  );
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('in'));
+}
+
+/* Soft parallax on hero film */
+const film = document.querySelector('[data-parallax]');
+if (film && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  window.addEventListener(
+    'scroll',
+    () => {
+      const y = Math.min(window.scrollY * 0.12, 48);
+      film.style.transform = `translate3d(0, ${y}px, 0) scale(1.02)`;
+    },
+    { passive: true },
+  );
+}

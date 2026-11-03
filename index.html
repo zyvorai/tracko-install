@@ -113,33 +113,38 @@
 
   <main>
     <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
       <p class="eyebrow animate" id="hero-eyebrow">Mac · Windows</p>
       <div class="hero-brand animate">
-        <img class="hero-mark" src="./assets/logo-mark.svg" width="96" height="96" alt="Tracko" />
+        <div class="hero-mark-wrap">
+          <img class="hero-mark" src="./assets/logo-mark.svg" width="112" height="112" alt="Tracko" />
+        </div>
         <h1 class="brand">Tracko</h1>
       </div>
       <p class="lede animate">Freight, finally clear.</p>
       <p class="sub animate">One control tower for India’s road logistics — GST, e-Way, SIM, FASTag, RFQ. Install in a single line.</p>
       <div class="cta-row animate">
-        <button class="btn" id="hero-copy" type="button">Copy install command</button>
+        <button class="btn btn-shine" id="hero-copy" type="button">Copy install command</button>
         <a class="btn btn-ghost" href="#gallery">See the product</a>
       </div>
       <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">macOS Apple Silicon · no public .exe</p>
     </section>
 
     <section class="film" id="film" aria-label="Product">
-      <div class="film-frame">
+      <div class="film-frame" data-parallax>
         <img class="og-hero light-only" src="./assets/og-branded.png" width="1200" height="630" alt="Tracko control tower" fetchpriority="high" />
         <img class="og-hero dark-only" src="./assets/og-branded-dark.png" width="1200" height="630" alt="Tracko control tower — dark" />
       </div>
+      <div class="film-fade" aria-hidden="true"></div>
     </section>
 
-    <section class="strip">
+    <section class="strip reveal">
       <p>Built private. Shared as an install — never as source.</p>
     </section>
 
     <!-- Gallery -->
-    <section class="section wide" id="gallery">
+    <section class="section wide reveal" id="gallery">
       <h2>See it move.</h2>
       <p class="section-lead">Control tower, live map, vendor onboard — the surfaces operators actually use.</p>
       <div class="gallery">
@@ -166,11 +171,11 @@
       </div>
     </section>
 
-    <section class="section" id="install">
+    <section class="section reveal" id="install">
       <h2>One command. That’s it.</h2>
       <p class="section-lead">Muse-style install — copy the line for your OS. The script fetches the binary. No Setup.exe on this page.</p>
 
-      <div class="install-card">
+      <div class="install-card glass">
         <div class="install-tabs" role="tablist" aria-label="Platform">
           <button class="tab active" data-os="mac" type="button">Mac</button>
           <button class="tab" data-os="win" type="button">Windows</button>
@@ -178,27 +183,30 @@
         </div>
         <div class="cmd-row">
           <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
-          <button class="btn" id="copy-btn" type="button">Copy</button>
+          <button class="btn btn-shine" id="copy-btn" type="button">Copy</button>
         </div>
         <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
       </div>
     </section>
 
     <!-- Feature deep dives -->
-    <section class="section band" id="features">
+    <section class="section band reveal" id="features">
       <div class="inner">
         <h2>Designed around the trip.</h2>
         <p class="section-lead">Everything your ops stack juggles — in one record.</p>
         <div class="feature-rows">
-          <article class="feature">
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◈</div>
             <h3>Control tower</h3>
             <p>Live lanes, exceptions, and settlement in a single ops surface — boardroom-clean, dock-sharp.</p>
           </article>
-          <article class="feature">
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◎</div>
             <h3>India-native</h3>
             <p>GST splits, e-Way Part-B, SIM + FASTag + GPS, Tally export. Built for how freight moves here.</p>
           </article>
-          <article class="feature">
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◉</div>
             <h3>Realtime</h3>
             <p>SSE fleet positions, alerts, and dispatch — the map moves while you watch.</p>
           </article>
@@ -206,39 +214,43 @@
       </div>
     </section>
 
-    <section class="showcase">
+    <section class="showcase reveal">
       <div class="showcase-copy">
         <p class="eyebrow">Realtime</p>
         <h2>The map that doesn’t wait.</h2>
         <p>Fleet positions stream over SSE. Alerts and dispatch update without a refresh. Demo hubs tick GPS every ~2 seconds so you can feel it immediately.</p>
       </div>
-      <img src="./assets/map-control-tower.png" width="960" height="600" alt="Live control tower map" loading="lazy" />
+      <div class="showcase-media">
+        <img src="./assets/map-control-tower.png" width="960" height="600" alt="Live control tower map" loading="lazy" />
+      </div>
     </section>
 
-    <section class="showcase invert">
+    <section class="showcase invert reveal">
       <div class="showcase-copy">
         <p class="eyebrow">India pack</p>
         <h2>Compliance without the spreadsheet.</h2>
         <p>e-Way lifecycle, GST helpers, FASTag recon, ULIP-shaped Vahan/SARATHI gates — demo today, credentialed when your hub has keys.</p>
       </div>
-      <img src="./assets/map-tracking.png" width="960" height="600" alt="India logistics tracking" loading="lazy" />
+      <div class="showcase-media">
+        <img src="./assets/map-tracking.png" width="960" height="600" alt="India logistics tracking" loading="lazy" />
+      </div>
     </section>
 
-    <section class="section dark" id="editions">
+    <section class="section dark reveal" id="editions">
       <h2>Choose your surface.</h2>
       <p class="section-lead">Same product. Different doors in.</p>
       <div class="tiers">
-        <article class="tier">
+        <article class="tier card-lift">
           <h3>Desktop</h3>
           <p class="price">Mac + Windows</p>
           <p>Full control tower. One-command install on either OS.</p>
         </article>
-        <article class="tier featured">
+        <article class="tier featured card-lift">
           <h3>Ops suite</h3>
           <p class="price">Recommended</p>
           <p>Desktop + portal + phone Scanner / Driver against your private API hub.</p>
         </article>
-        <article class="tier">
+        <article class="tier card-lift">
           <h3>Private hub</h3>
           <p class="price">Your LAN / VPS</p>
           <p>Postgres SoT, JWT, Muse install. Source stays closed.</p>
@@ -247,7 +259,7 @@
     </section>
 
     <!-- Specs -->
-    <section class="section" id="specs">
+    <section class="section reveal" id="specs">
       <h2>Tech specs</h2>
       <p class="section-lead">What you need. What you get.</p>
       <div class="specs">
@@ -274,7 +286,7 @@
     </section>
 
     <!-- Privacy -->
-    <section class="section band" id="privacy">
+    <section class="section band reveal" id="privacy">
       <div class="inner">
         <h2>Private by design.</h2>
         <p class="section-lead">Your hub. Your data. Public page only ships installers.</p>
@@ -289,7 +301,7 @@
     </section>
 
     <!-- Test -->
-    <section class="section" id="test">
+    <section class="section reveal" id="test">
       <h2>Public test checklist</h2>
       <p class="section-lead">Fifteen minutes. Tell us what broke.</p>
       <ul class="test-list">
@@ -305,7 +317,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section band" id="faq">
+    <section class="section band reveal" id="faq">
       <div class="inner">
         <h2>Questions, answered.</h2>
         <div class="faq" id="faq-list">
@@ -334,7 +346,7 @@
     </section>
 
     <!-- Status -->
-    <section class="section" id="status">
+    <section class="section reveal" id="status">
       <h2>Beta status</h2>
       <p class="section-lead">Honest snapshot of what’s live.</p>
       <div class="status-grid">
@@ -349,7 +361,7 @@
     </section>
 
     <!-- Press -->
-    <section class="section band" id="press">
+    <section class="section band reveal" id="press">
       <div class="inner">
         <h2>Brand kit</h2>
         <p class="section-lead">Logo mark for blogs, decks, and App Store listings.</p>
@@ -374,16 +386,17 @@
       </div>
     </section>
 
-    <section class="section bare">
+    <section class="section bare reveal finale">
       <h2>Ready when you are.</h2>
-      <div class="install-card" style="margin-top: 1.5rem;">
+      <div class="install-card glass" style="margin-top: 1.5rem;">
         <div class="cmd-row">
           <code id="install-cmd-2">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
-          <button class="btn" id="copy-btn-2" type="button">Copy</button>
+          <button class="btn btn-shine" id="copy-btn-2" type="button">Copy</button>
         </div>
       </div>
     </section>
   </main>
+  <div class="toast" id="toast" hidden>Copied to clipboard</div>
 
   <footer class="footer footer-rich">
     <div class="footer-brand">
