@@ -5,6 +5,7 @@
 #   powershell -ExecutionPolicy Bypass -File .\install.ps1
 # Override CDN:  $env:TRACKO_BASE_URL = "https://your-cdn"
 # Override API:  $env:TRACKO_API_URL  = "http://192.168.1.10:8080"
+# UAT with an unsigned build: $env:TRACKO_ALLOW_UNSIGNED = "1"
 
 $ErrorActionPreference = "Stop"
 
@@ -55,6 +56,35 @@ try {
   Write-Host "When Setup.exe is published, re-run this script — it will fetch automatically."
   Write-Host "FAQ: https://zyvorai.github.io/tracko-install/#faq"
   throw
+}
+
+# Integrity: the published SHA-256 must match, or we refuse to run the installer.
+try {
+  $raw = (Invoke-WebRequest -Uri "$Url.sha256" -UseBasicParsing).Content
+  if ($raw -is [byte[]]) { $raw = [System.Text.Encoding]::UTF8.GetString($raw) }  # Pages may serve octet-stream
+  $expected = ($raw.Trim() -split '\s+')[0].ToLower()
+} catch {
+  Write-Host "Could not fetch $Url.sha256 — refusing to run an unverified installer." -ForegroundColor Red
+  throw
+}
+$actual = (Get-FileHash -Algorithm SHA256 -Path $SetupPath).Hash.ToLower()
+if ($actual -ne $expected) {
+  Remove-Item $SetupPath -Force
+  Write-Host "SHA-256 mismatch (expected $expected, got $actual) — download deleted." -ForegroundColor Red
+  exit 1
+}
+Write-Host "SHA-256 verified."
+
+# Authenticode: unsigned builds only run when you opt in (UAT): $env:TRACKO_ALLOW_UNSIGNED = "1"
+$sig = Get-AuthenticodeSignature -FilePath $SetupPath
+if ($sig.Status -eq "Valid") {
+  Write-Host "Signature valid: $($sig.SignerCertificate.Subject)"
+} elseif ($env:TRACKO_ALLOW_UNSIGNED -eq "1") {
+  Write-Host "WARNING: installer is $($sig.Status) — continuing because TRACKO_ALLOW_UNSIGNED=1." -ForegroundColor Yellow
+} else {
+  Write-Host "Installer is not Authenticode-signed ($($sig.Status)). Refusing to run it." -ForegroundColor Red
+  Write-Host "For UAT only: `$env:TRACKO_ALLOW_UNSIGNED = '1'; then re-run."
+  exit 1
 }
 
 # Persist preferred API for first launch (desktop reads localStorage; also drop a hint file)
