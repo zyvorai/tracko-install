@@ -1,3 +1,39 @@
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/syne-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/dm-sans-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/dm-sans-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/dm-sans-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/dm-sans-700.woff2") format("woff2");
+}
+
 :root {
   --bg: #f5f5f7;
   --bg-alt: #ffffff;
@@ -14,7 +50,8 @@
   --cmd-fg: #f5f5f7;
   --tab-bg: rgba(0, 0, 0, 0.04);
   --radius-pill: 980px;
-  --font: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  --font: "DM Sans", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  --font-display: "Syne", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   color-scheme: light;
@@ -241,6 +278,7 @@ html[data-theme="dark"] .icon-sun { display: inline; }
 }
 .brand {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(56px, 12vw, 96px);
   font-weight: 700;
   letter-spacing: -0.055em;
@@ -1134,4 +1172,79 @@ html[data-theme="dark"] .install-card.glass {
 .lang-toggle button.active {
   background: var(--text);
   color: var(--bg);
+}
+
+/* —— Phone apps stage (visual; no public IPA CTAs) —— */
+.phones-stage h2,
+.section h2,
+.showcase h2,
+.finale h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+.phone-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 2rem;
+}
+@media (max-width: 720px) {
+  .phone-cards { grid-template-columns: 1fr; }
+}
+.phone-card {
+  border-radius: 28px;
+  padding: 28px 26px 30px;
+  min-height: 200px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+.phone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+.phone-card h3 {
+  margin: 6px 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 36px);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+.phone-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 15px;
+  max-width: 28ch;
+}
+.phone-kicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.driver-tone {
+  background:
+    radial-gradient(ellipse 90% 80% at 10% 0%, rgba(0, 113, 227, 0.22), transparent 55%),
+    linear-gradient(165deg, #0c1420, #070b12);
+  color: #f2f5fa;
+  border-color: rgba(255,255,255,0.08);
+}
+.driver-tone .phone-kicker { color: #6eb8ff; }
+.driver-tone p:last-child { color: #8b97a8; }
+.scanner-tone {
+  background:
+    radial-gradient(ellipse 90% 80% at 10% 0%, rgba(61, 214, 140, 0.22), transparent 55%),
+    linear-gradient(165deg, #0f1813, #060a08);
+  color: #eef6ef;
+  border-color: rgba(255,255,255,0.08);
+}
+.scanner-tone .phone-kicker { color: #3dd68c; }
+.scanner-tone p:last-child { color: #8fad97; }
+.phones-hint { margin-top: 1.25rem; }
+html[data-theme="light"] .driver-tone,
+html:not([data-theme="dark"]) .driver-tone {
+  /* keep dark phone cards in light mode for product energy */
 }
