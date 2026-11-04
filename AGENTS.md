@@ -6,8 +6,8 @@ Public beta install site for Tracko. **Not** the application source (that lives 
 
 Vendor UAT + Amazing iOS sideload plans are **done**. This site hosts:
 
-- Muse install: `install.sh` / `install.ps1`
-- Private downloads: Mac DMG, Driver/Scanner **IPA + APK** (no homepage download buttons)
+- Homepage **Downloads**: Mac DMG, Driver/Scanner IPA + APK
+- Muse-style Mac one-liner still available: `install.sh` / `install.ps1`
 - Docs: `VENDOR_UAT.md`, `MOBILE_RELEASE.md`, etc.
 
 Live: https://zyvorai.github.io/tracko-install/
@@ -24,5 +24,5 @@ Pushing `main` also deploys via `.github/workflows/pages.yml` → `gh-pages`.
 
 ## Rules
 
-- Do **not** add public IPA/APK/DMG CTAs on `index.html` (same Muse rule as desktop).
+- Keep the `#downloads` section with working IPA/APK/DMG links — vendors need them.
 - Point agents doing product work at the **tracko** repo `AGENTS.md`.

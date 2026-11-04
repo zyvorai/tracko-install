@@ -98,10 +98,10 @@
       <span>Tracko</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#gallery">Gallery</a>
+      <a href="#downloads">Downloads</a>
       <a href="#install">Install</a>
+      <a href="#gallery">Gallery</a>
       <a href="#features">Features</a>
-      <a href="#specs">Specs</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
@@ -131,10 +131,10 @@
       <p class="lede animate">Freight, finally clear.</p>
       <p class="sub animate">One control tower for India’s road logistics — GST, e-Way, SIM, FASTag, RFQ. Install in a single line.</p>
       <div class="cta-row animate">
-        <button class="btn btn-shine" id="hero-copy" type="button">Copy install command</button>
-        <a class="btn btn-ghost" href="#gallery">See the product</a>
+        <a class="btn btn-shine" href="#downloads">Download apps</a>
+        <button class="btn btn-ghost" id="hero-copy" type="button">Copy Mac install</button>
       </div>
-      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">macOS Apple Silicon · no public .exe</p>
+      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">Mac DMG · iPhone IPA · Android APK · Windows command when ready</p>
     </section>
 
     <section class="film" id="film" aria-label="Product">
@@ -149,22 +149,63 @@
       <p>Built private. Shared as an install — never as source.</p>
     </section>
 
+    <section class="section reveal" id="downloads">
+      <h2>Downloads</h2>
+      <p class="section-lead">Grab the binary for your device. Phones are sideload (no App Store / Play). Mac also has a one-line install below.</p>
+      <div class="download-grid">
+        <article class="download-card">
+          <p class="phone-kicker">Desktop</p>
+          <h3>Mac</h3>
+          <p>Apple Silicon · notarized DMG</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download DMG</a>
+          </div>
+        </article>
+        <article class="download-card driver-tone">
+          <p class="phone-kicker">Doorstep</p>
+          <h3>Driver</h3>
+          <p>iPhone IPA · Android APK · hub URL + TRACKO-DEMO</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Driver.ipa" download>iPhone IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Driver.apk" download>Android APK</a>
+          </div>
+        </article>
+        <article class="download-card scanner-tone">
+          <p class="phone-kicker">Dock</p>
+          <h3>Scanner</h3>
+          <p>iPhone IPA · Android APK · hub URL + SCAN-DEMO</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Scanner.ipa" download>iPhone IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Scanner.apk" download>Android APK</a>
+          </div>
+        </article>
+      </div>
+      <p class="hint phones-hint">iOS: register device UDID on team NX667LTDQ2, then install with Xcode Devices or Apple Configurator. Guides: <a href="./VENDOR_UAT.md">Vendor UAT</a> · <a href="./MOBILE_RELEASE.md">Mobile release</a>.</p>
+    </section>
+
     <section class="section phones-stage reveal" id="phones">
       <h2>Driver &amp; Scanner.</h2>
-      <p class="section-lead">Phone surfaces built for the dock and the door — pair to your private hub. Sideload binaries for UAT; no App Store.</p>
+      <p class="section-lead">Phone surfaces built for the dock and the door — pair to your private hub after you download above.</p>
       <div class="phone-cards">
         <article class="phone-card driver-tone">
           <p class="phone-kicker">Doorstep</p>
           <h3>Driver</h3>
           <p>Live GPS, stop cards, OTP · COD · POD — one job at the door.</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Driver.ipa" download>IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Driver.apk" download>APK</a>
+          </div>
         </article>
         <article class="phone-card scanner-tone">
           <p class="phone-kicker">Dock</p>
           <h3>Scanner</h3>
           <p>Full-bleed camera, Arrived / Sent modes, offline queue when Wi‑Fi drops.</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Scanner.ipa" download>IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Scanner.apk" download>APK</a>
+          </div>
         </article>
       </div>
-      <p class="hint phones-hint"><a href="./VENDOR_UAT.md">Vendor UAT guide</a> · <a href="./MOBILE_RELEASE.md">Mobile release</a> — IPA/APK under private downloads, not homepage CTAs.</p>
     </section>
 
     <!-- Gallery -->
@@ -197,7 +238,7 @@
 
     <section class="section reveal" id="install">
       <h2>One command. That’s it.</h2>
-      <p class="section-lead">Muse-style install — copy the line for your OS. The script fetches the binary. No Setup.exe on this page.</p>
+      <p class="section-lead">Prefer the button? Use <a href="#downloads">Downloads</a>. Or copy the one-liner — Mac script fetches the DMG for you. Windows Setup still pending.</p>
 
       <div class="install-card glass">
         <div class="install-tabs" role="tablist" aria-label="Platform">
@@ -303,7 +344,7 @@
           <dl>
             <div><dt>Hub</dt><dd id="spec-api-version">API / plan 0.3.0 · world_class</dd></div>
             <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.1.0</dd></div>
-            <div><dt>Install</dt><dd>One command · no public .exe CTA</dd></div>
+            <div><dt>Install</dt><dd>Homepage downloads + Mac one-liner</dd></div>
             <div><dt>Realtime</dt><dd>SSE <code>/api/v1/events</code></dd></div>
             <div><dt>Store</dt><dd>JSON + optional Postgres SoT</dd></div>
             <div><dt>India rails</dt><dd>Demo until hub credentials</dd></div>
@@ -320,7 +361,7 @@
         <ul class="test-list">
           <li>Application source is not published<span>This repo is install + marketing only</span></li>
           <li>Hub runs on your machine or VPS<span>Postgres + JWT under your control</span></li>
-          <li>No public binary download buttons<span>Scripts fetch artifacts — Muse-style</span></li>
+          <li>Downloads on this page<span>Mac DMG · phone IPA/APK · Windows Setup pending</span></li>
           <li>Report issues without secrets<span>Redact API keys in feedback</span></li>
         </ul>
         <p class="hint" style="margin-top: 1.5rem;"><a href="./SECURITY.md">Security policy</a> · <a href="./PRIVACY.md">Privacy note</a></p>
@@ -353,8 +394,8 @@
             <p>Yes. Install and try the desktop against your hub. Commercial terms come later.</p>
           </details>
           <details>
-            <summary>Why no Download .exe / .dmg button?</summary>
-            <p>Same pattern as Muse Code — one command. Installers fetch the binary. Keeps the page clean and the distribution path auditable.</p>
+            <summary>Where do I download the apps?</summary>
+            <p>Use the <a href="#downloads">Downloads</a> section: Mac DMG, Driver/Scanner IPA and APK. Mac also has a one-line install command. Windows Setup.exe is not published yet.</p>
           </details>
           <details>
             <summary>Windows says Setup missing?</summary>

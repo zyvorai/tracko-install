@@ -16,6 +16,6 @@ Connect screen → hub URL → Save & test → Control Tower.
 - Driver: `http://<LAN>:8080/driver/` + `TRACKO-DEMO`
 - Scanner: `http://<LAN>:8080/scanner/?pair=SCAN-DEMO`
 - Portal / carrier: `http://<LAN>:8080/app/`
-- Native (no store): `downloads/Tracko-Driver.ipa` · `Tracko-Scanner.ipa` (Xcode Devices / Configurator; UDID registered) · `.apk` for Android sideload.
+- Native (no store): homepage [Downloads](./#downloads) — `Tracko-Driver.ipa` / `.apk`, `Tracko-Scanner.ipa` / `.apk` (Xcode Devices / Configurator; UDID registered).
 
 **Codes:** `SCAN-DEMO` · `TRACKO-DEMO` · delivery OTP `391204`
