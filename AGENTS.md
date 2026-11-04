@@ -4,11 +4,11 @@ Public beta install site for Tracko. **Not** the application source (that lives 
 
 ## Status
 
-Vendor UAT + Amazing iOS sideload plans are **done**. This site hosts:
+Vendor UAT + phone sideload + live-rails / Postgres SoT / App Store readiness docs are **current**. This site hosts:
 
 - Homepage **Downloads**: Mac DMG, Driver/Scanner IPA + APK
-- Muse-style Mac one-liner still available: `install.sh` / `install.ps1`
-- Docs: `VENDOR_UAT.md`, `MOBILE_RELEASE.md`, etc.
+- Muse-style Mac one-liner: `install.sh` / `install.ps1`
+- Docs: `VENDOR_UAT.md`, `MOBILE_RELEASE.md`, `INTEGRATIONS.md`, `WHATSAPP.md`, `PILOT.md`, `WORLD_CLASS.md`
 
 Live: https://zyvorai.github.io/tracko-install/
 

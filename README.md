@@ -54,13 +54,11 @@ Then: **Server / Settings** → your hub (`http://127.0.0.1:8080` or LAN).
 
 | Section | What |
 |---------|------|
-| Gallery | Control tower, tracking, vendors |
-| Install | OS tabs + copy command |
-| Features / showcases | Realtime + India pack |
-| Specs | Requirements + beta contents |
-| Privacy | Hub-owned data model |
-| FAQ | Common questions |
-| Status | Honest live / pending |
+| [Downloads](./#downloads) | Mac DMG · Driver/Scanner IPA + APK |
+| Install | OS tabs + one-line command |
+| Gallery / features | Control tower, India pack |
+| Docs | [VENDOR_UAT](./VENDOR_UAT.md) · [MOBILE_RELEASE](./MOBILE_RELEASE.md) · [INTEGRATIONS](./INTEGRATIONS.md) · [WHATSAPP](./WHATSAPP.md) |
+| Privacy / security | Hub-owned data model |
 | Brand kit | SVG + PNG logos, OG |
 
 ---
@@ -69,10 +67,12 @@ Then: **Server / Settings** → your hub (`http://127.0.0.1:8080` or LAN).
 
 | Surface | Status |
 |---------|--------|
-| Mac DMG via `install.sh` | Live |
+| Mac DMG via `install.sh` + Downloads | Live |
+| Phone IPA/APK sideload | Live (UDID); TestFlight export ready |
 | Windows Setup via `install.ps1` | Script ready · artifact when published |
 | Realtime map (hub) | Live |
-| India live rails | Demo until credentials |
+| India live rails | Env-gated — demo until credentials |
+| Postgres SoT | `DATABASE_URL` → `postgres+json-cache` |
 | Source | Private |
 
 ---

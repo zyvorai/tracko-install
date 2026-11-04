@@ -1,10 +1,18 @@
+# Changelog
+
+## 0.3.2 — Live rails · Postgres SoT · App Store readiness
+
+- NIC e-Way / ULIP / WhatsApp / FASTag flip live from hub env ([INTEGRATIONS.md](./INTEGRATIONS.md))
+- Postgres hydrate + `TRACKO_STORE_MODE` / `TRACKO_PG_SYNC_SECS` (`store: postgres+json-cache`)
+- Driver/Scanner Privacy Manifest + App Store / TestFlight export path ([MOBILE_RELEASE.md](./MOBILE_RELEASE.md))
+- Homepage Downloads: Mac DMG + phone IPA/APK; Vendor UAT docs refreshed for `:8088`
+
 ## 0.3.1 — Public beta polish
+
 - EN/हि language toggle, manifest-driven versions
 - Tab a11y, focus rings, Linux honesty
 - Desktop/web/driver/scanner favicons + sidebar logo
-- CI builds scanner; mobile release docs; sync-install-site.sh
-
-# Changelog
+- CI builds scanner; mobile release docs
 
 ## 0.3.0 — Public beta
 
