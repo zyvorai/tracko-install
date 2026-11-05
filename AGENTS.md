@@ -4,7 +4,7 @@ Public beta install site for Tracko. **Not** the application source (that lives 
 
 ## Status
 
-Docs were refreshed against the hub on 2026-11-05 (hardening, production mode, restore, Hindi/Gujarati portal): `CHANGELOG.md` 0.4.0 and the six synced guides below are current. IPA/APK/DMG binaries on this site were last rebuilt before that and were not rebuilt for it. This site hosts:
+Docs were refreshed against the hub on 2026-11-05 (hardening, production mode, restore, Hindi/Gujarati portal): `CHANGELOG.md` 0.4.0 and the six synced guides below are current. IPA/APK/DMG binaries were rebuilt from the same code (DMG signed, not notarized; IPAs development export). This site hosts:
 
 - Homepage **Downloads**: Mac DMG, Driver/Scanner IPA + APK
 - Muse-style Mac one-liner: `install.sh` / `install.ps1`
