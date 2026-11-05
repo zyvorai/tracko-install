@@ -10,7 +10,7 @@ One hub serves the API **and** phone/web PWAs. Keep `DEMO_MODE=true` so portal O
 cd tracko
 cp .env.example .env   # DEMO_MODE=true, REALTIME_SIM=true
 ./scripts/build-pilot-static.sh   # required before phones work
-./scripts/deploy-hub.sh           # prefer PORT=8088 if :8080 is taken (e.g. Setura)
+./scripts/deploy-hub.sh           # Docker: set API_PORT=8088 in .env if :8080 is taken (e.g. Setura); running the binary directly uses PORT=8088
 ./scripts/smoke-onboard.sh http://127.0.0.1:8088
 ```
 
@@ -44,7 +44,7 @@ Note the machine’s **LAN IP**. Testers use `http://<LAN>:8088` (or `:8080` if 
 6. Driver → hub URL → link `TRACKO-DEMO` → **At door** checklist.
 7. Scanner → pair → prefer PKG chips → same `scan_id` retry is idempotent.
 8. Portal OTP login → on-screen **demo OTP** (not the driver code).
-9. `/app/?mode=tenders` → Accept `TND-DEMO` → desktop **Carrier EDI** / Tower strip shows accepted.
+9. `/app/?mode=tenders` → (with RBAC on, enter a carrier access key from Carrier EDI → Invite / New key) Accept `TND-DEMO` → desktop **Carrier EDI** / Tower strip shows accepted.
 10. **Billing** finance script → Invoice TRK-1001 → Settlements → Freight audit → Tally.
 
 ## Demo cheat-sheet
@@ -55,14 +55,14 @@ Note the machine’s **LAN IP**. Testers use `http://<LAN>:8088` (or `:8080` if 
 | Driver install | `TRACKO-DEMO` |
 | **Driver** delivery OTP | `391204` |
 | **Portal** OTP | On-screen `demo_otp` after Send OTP (not 391204) |
-| Role login (desktop Ops) | `U-01` · password `tracko` if `REQUIRE_RBAC=1` |
+| Role login (desktop Ops) | `U-01` · password = `RBAC_PASSWORD` (demo hubs fall back to `tracko` when it is unset). `scripts/smoke-onboard.sh` reads `RBAC_PASSWORD` too and needs a demo hub |
 | Seed shipment | `TRK-1001` |
 | Demo tender | `TND-DEMO` |
 | Blacklist demo | carrier `Blocked Haulers` cannot receive tenders |
 
 ## First 15 minutes (desktop tour)
 
-1. Connect hub → **UAT Tour** (Billing · Freight audit · Carrier EDI / connect included).
+1. Connect hub → **First 15 minutes** (Billing · Freight audit · Carrier EDI / connect included).
 2. Control Tower → map + ETA playbooks + tender strip.
 3. Shipments → **Compliance** drawer (Part-B / extend / cancel + NIC demo ack) · Print LR / CN.
 4. Phone scanners → LAN share + create package + `scan_id` demos.
