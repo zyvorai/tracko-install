@@ -15,7 +15,7 @@ Customer web portal
 
 Apps
 - Accessibility lint (jsx-a11y) in all four apps; keyboard-operable lists and labelled form fields.
-- Phone app binaries on this site were **not** rebuilt for this release (no behaviour change on the phones beyond small accessibility fixes).
+- Mac DMG, Driver/Scanner APKs and IPAs on this site were rebuilt from the same code (DMG Developer ID signed, not notarized; IPAs are development exports for registered devices only). Not yet tried on a physical device.
 
 ## 0.3.2 — Live rails · Postgres SoT · App Store readiness
 
