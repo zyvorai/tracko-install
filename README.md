@@ -32,7 +32,7 @@
 
 ## Install
 
-Apple-clean landing. Muse-style — **one command**, no public `.exe` / `.dmg` buttons.
+Apple-clean landing. Muse-style **one command**, plus Mac DMG and phone IPA/APK buttons in the homepage Downloads section.
 
 **Mac**
 

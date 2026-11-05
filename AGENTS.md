@@ -4,11 +4,11 @@ Public beta install site for Tracko. **Not** the application source (that lives 
 
 ## Status
 
-Vendor UAT + phone sideload + live-rails / Postgres SoT / App Store readiness docs are **current**. This site hosts:
+Docs were refreshed against the hub on 2026-11-05 (hardening, production mode, restore, Hindi/Gujarati portal): `CHANGELOG.md` 0.4.0 and the six synced guides below are current. IPA/APK/DMG binaries on this site were last rebuilt before that and were not rebuilt for it. This site hosts:
 
 - Homepage **Downloads**: Mac DMG, Driver/Scanner IPA + APK
 - Muse-style Mac one-liner: `install.sh` / `install.ps1`
-- Docs: `VENDOR_UAT.md`, `MOBILE_RELEASE.md`, `INTEGRATIONS.md`, `WHATSAPP.md`, `PILOT.md`, `WORLD_CLASS.md`
+- Docs: `VENDOR_UAT.md`, `MOBILE_RELEASE.md`, `INTEGRATIONS.md`, `WHATSAPP.md`, `PILOT.md`, `WORLD_CLASS.md` are **copies of `docs/` in the tracko repo** — edit them there, then copy over (`for f in …; do cp ../tracko/docs/$f.md .; done`) so the two never drift.
 
 Live: https://zyvorai.github.io/tracko-install/
 
