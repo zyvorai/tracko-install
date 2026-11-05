@@ -7,7 +7,7 @@ Tracko’s **public site** (this GitHub Pages repo) only distributes install scr
 When you run the Tracko API hub:
 
 - Shipment, GPS, and ops data stay on **your** machine or VPS (JSON snapshot and optional Postgres).
-- OTP / JWT secrets are yours (`JWT_SECRET`).
+- OTP / JWT secrets are yours (`JWT_SECRET`); the hub generates nothing that is sent anywhere else.
 - India / WhatsApp / payout credentials you configure never leave your hub except to the providers you choose.
 
 ## Install telemetry

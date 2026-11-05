@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0 — Hardened hub · customer portal in हिन्दी / ગુજરાતી · production mode
+
+Hub (private; see [INTEGRATIONS.md](./INTEGRATIONS.md) and the hub's ops guide)
+- **Security:** with `REQUIRE_RBAC=1` every staff read needs a signed-in role; carrier and shop-network routes are staff-only except a carrier's own tender list/accept/reject (per-carrier `X-Carrier-Key`); live events carry data only for staff tokens; sign-out and admin revoke void tokens; role login is rate-limited; OTP, delivery and e-POD codes lock after repeated wrong guesses; tender webhooks can be HMAC-signed; webhook URLs cannot point inside your network.
+- **Production mode (`DEMO_MODE=false`):** refuses placeholder or short `JWT_SECRET`, mistyped settings and malformed alert settings; starts empty with one admin (`BOOTSTRAP_ADMIN_EMAIL`); no GPS simulator or demo data.
+- **Data safety:** local edits no longer lost to an older Postgres snapshot on restart; `scripts/restore-hub.sh` restores with a safety backup; backups never overwrite each other and can be pruned (`KEEP=N`); a corrupt snapshot is kept aside; the Postgres reporting tables no longer contain demo rows or deleted records.
+- **Money & KPIs:** bank reconciliation fixes (undo, status gates, amount parsing), KPI months and days follow India time, draft driver settlements are not counted as cost, no invented e-invoice IRN, FAP release is admin-only.
+- Users & Roles screen: add users, change role, deactivate (signs the user out).
+
+Customer web portal
+- Hindi and Gujarati across the portal, sign-in, tracking page, delivery slots, carrier install, tutorials, carrier tenders, phone-app and multi-shop pages (first-draft wording; reviewers welcome).
+- The public tracking link keeps itself current.
+
+Apps
+- Accessibility lint (jsx-a11y) in all four apps; keyboard-operable lists and labelled form fields.
+- Phone app binaries on this site were **not** rebuilt for this release (no behaviour change on the phones beyond small accessibility fixes).
+
 ## 0.3.2 — Live rails · Postgres SoT · App Store readiness
 
 - NIC e-Way / ULIP / WhatsApp / FASTag flip live from hub env ([INTEGRATIONS.md](./INTEGRATIONS.md))

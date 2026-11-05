@@ -346,7 +346,9 @@
             <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.1.0</dd></div>
             <div><dt>Install</dt><dd>Homepage downloads + Mac one-liner</dd></div>
             <div><dt>Realtime</dt><dd>SSE <code>/api/v1/events</code></dd></div>
-            <div><dt>Store</dt><dd>JSON + optional Postgres SoT</dd></div>
+            <div><dt>Store</dt><dd>JSON + optional Postgres SoT · backup &amp; restore scripts</dd></div>
+            <div><dt>Languages</dt><dd>Customer portal in English · हिन्दी · ગુજરાતી</dd></div>
+            <div><dt>Production</dt><dd><code>DEMO_MODE=false</code> starts empty with one admin</dd></div>
             <div><dt>India rails</dt><dd>Demo until hub credentials</dd></div>
           </dl>
         </div>
@@ -404,6 +406,14 @@
           <details>
             <summary>Where does my data live?</summary>
             <p>On the hub you run — JSON snapshot and optional Postgres. The public Pages site does not host your freight data.</p>
+          </details>
+          <details>
+            <summary>How do I back up and restore the hub?</summary>
+            <p><code>scripts/backup-hub.sh</code> saves a snapshot (set <code>KEEP=48</code> to prune); <code>scripts/restore-hub.sh</code> restores one after taking a safety backup of the current state. See the ops guide in the hub repo.</p>
+          </details>
+          <details>
+            <summary>Is the customer portal available in Hindi and Gujarati?</summary>
+            <p>Yes: sign-in, tracking, shipments, invoices, bookings and disputes, plus the carrier and tutorial pages. The wording is a first draft; tell us what to fix.</p>
           </details>
           <details>
             <summary>Can I point multiple desktops at one hub?</summary>
