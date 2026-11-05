@@ -16,7 +16,7 @@ Demo adapters work out of the box. Set credentials to leave demo — status on `
 | RBAC | `REQUIRE_RBAC=1` | Enforces a Bearer role on every `/api/v1` route except the public, phone and device-key ones; reads need a signed-in role too |
 | Postgres | `DATABASE_URL` | Full JSON SoT in `app_snapshots` + core tables; see below |
 | JWT | `JWT_SECRET` | At least 24 random characters; with `DEMO_MODE=false` or RBAC on, a short or placeholder value ("change-me", `.env.example`, `docker-compose` default, …) stops the hub from starting. See AUTH.md |
-| Hub settings | `JWT_TTL_SECS`, `RBAC_PASSWORD`, `CORS_ORIGINS`, `METRICS_TOKEN`, `PUBLIC_BASE_URL`, `BOOTSTRAP_ADMIN_EMAIL` / `BOOTSTRAP_ADMIN_NAME` | See the production checklist in OPS.md |
+| Hub settings | `HUB_NAME` (company shown by `GET /platform/hub`), `JWT_TTL_SECS`, `RBAC_PASSWORD`, `CORS_ORIGINS`, `METRICS_TOKEN`, `PUBLIC_BASE_URL`, `BOOTSTRAP_ADMIN_EMAIL` / `BOOTSTRAP_ADMIN_NAME` | See the production checklist in OPS.md |
 | SMS / WhatsApp secrets | `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM`; `WHATSAPP_APP_SECRET`, `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_OTP_TEMPLATE`; `TENDER_WEBHOOK_SECRET` | OTP SMS; inbound WhatsApp webhook signature and handshake; HMAC signing of tender webhooks |
 | Optional jobs | `PROACTIVE_ALERTS=1`, `TELEMATICS_SCAN=1`, `RFQ_BLOCK_OUTLIERS=1`, `REALTIME_SIM` | Consignee alerts scan, scheduled telematics scan, refuse outlier RFQ awards, GPS simulator (defaults on only in demo mode) |
 | LTL rating | `LTL_RATING_URL` | SMC³-class partner |

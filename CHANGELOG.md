@@ -8,6 +8,7 @@ Hub (private; see [INTEGRATIONS.md](./INTEGRATIONS.md) and the hub's ops guide)
 - **Data safety:** local edits no longer lost to an older Postgres snapshot on restart; `scripts/restore-hub.sh` restores with a safety backup; backups never overwrite each other and can be pruned (`KEEP=N`); a corrupt snapshot is kept aside; the Postgres reporting tables no longer contain demo rows or deleted records.
 - **Money & KPIs:** bank reconciliation fixes (undo, status gates, amount parsing), KPI months and days follow India time, draft driver settlements are not counted as cost, no invented e-invoice IRN, FAP release is admin-only.
 - Users & Roles screen: add users, change role, deactivate (signs the user out).
+- One hub serves one company: the placeholder tenant endpoints were removed (`/platform/tenants` answers 410); run one hub per company and use branches / multi-shop networks for several sites. `GET /platform/hub` reports whose hub it is. Platform webhooks now actually deliver events (signed, retried).
 
 Customer web portal
 - Hindi and Gujarati across the portal, sign-in, tracking page, delivery slots, carrier install, tutorials, carrier tenders, phone-app and multi-shop pages (first-draft wording; reviewers welcome).
