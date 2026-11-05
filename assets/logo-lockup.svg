@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none" role="img" aria-label="Tracko">
+  <defs>
+    <linearGradient id="tg" x1="4" y1="2" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A84FF"/>
+      <stop offset="1" stop-color="#0055D4"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="2" width="44" height="44" rx="11" fill="url(#tg)"/>
+  <path d="M9.5 33 C 15 23, 19 37, 25 24.5 C 29 16, 32 27, 36.5 20"
+        stroke="#fff" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <circle cx="9.5" cy="33" r="3.4" fill="#fff"/>
+  <circle cx="9.5" cy="33" r="1.4" fill="#0A84FF"/>
+  <circle cx="36.5" cy="20" r="3.8" fill="#B8E4FF"/>
+  <circle cx="36.5" cy="20" r="1.5" fill="#0055D4"/>
+  <text x="56" y="33" font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif"
+        font-size="28" font-weight="650" letter-spacing="-1.2" fill="currentColor">Tracko</text>
+</svg>
