@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tracko — Public beta</title>
+  <meta name="description" content="Tracko is the logistics TMS for India’s freight. Public beta — one command to install on Mac or Windows. Live control tower, GST, e-Way, SIM, FASTag, RFQ." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="apple-mobile-web-app-title" content="Tracko" />
+  <link rel="canonical" href="https://zyvorai.github.io/tracko-install/" />
+  <link rel="manifest" href="./site.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tracko" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://zyvorai.github.io/tracko-install/" />
+  <meta property="og:title" content="Tracko — Public beta" />
+  <meta property="og:description" content="Logistics TMS for India. One command to install. Private source." />
+  <meta property="og:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Tracko control tower — public beta" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tracko — Public beta" />
+  <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
+  <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded.png" />
+  <meta name="twitter:image:alt" content="Tracko control tower — public beta" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('tracko-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tracko",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "macOS, Windows 10, Windows 11",
+    "description": "Logistics TMS for India’s freight — control tower, GST, e-Way, FASTag. Public beta.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "installUrl": "https://zyvorai.github.io/tracko-install/install.sh",
+    "image": "https://zyvorai.github.io/tracko-install/assets/og-branded.png",
+    "publisher": { "@type": "Organization", "name": "Zyvor", "url": "https://github.com/zyvorai" },
+    "softwareVersion": "0.3.0"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Tracko free during public beta?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The public beta install is free. Source stays private." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an internet connection?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Install needs the network once. The desktop talks to your private hub API on your LAN or VPS." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is the .exe download?",
+        "acceptedAnswer": { "@type": "Answer", "text": "There is no public .exe button. Windows uses one PowerShell command; the script fetches Setup when published." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#install">Skip to install</a>
+
+  <div class="beta">
+    Public beta · hub 0.3.0 · desktop 0.1.0 ·
+    <a href="./CHANGELOG.md">What’s new</a> ·
+    <a href="#status">Status</a>
+  </div>
+
+  <header class="nav">
+    <a class="nav-brand" href="./" aria-label="Tracko home">
+      <img class="nav-mark" src="./assets/logo-mark.svg" width="28" height="28" alt="" />
+      <span>Tracko</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#downloads">Downloads</a>
+      <a href="#install">Install</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="hi" aria-pressed="false">हि</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance">
+        <span class="icon-moon" aria-hidden="true">◐</span>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+      </button>
+      <a class="btn btn-small" href="#install">Install</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+      <p class="eyebrow animate" id="hero-eyebrow">Mac · Windows · Phones</p>
+      <div class="hero-brand animate">
+        <div class="hero-mark-wrap">
+          <img class="hero-mark" src="./assets/logo-mark.svg" width="112" height="112" alt="Tracko" />
+        </div>
+        <h1 class="brand">Tracko</h1>
+      </div>
+      <p class="lede animate">Freight, finally clear.</p>
+      <p class="sub animate">One control tower for India’s road logistics — GST, e-Way, SIM, FASTag, RFQ. Install in a single line.</p>
+      <div class="cta-row animate">
+        <a class="btn btn-shine" href="#downloads">Download apps</a>
+        <button class="btn btn-ghost" id="hero-copy" type="button">Copy Mac install</button>
+      </div>
+      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">Mac DMG · iPhone IPA · Android APK · Windows command when ready</p>
+    </section>
+
+    <section class="film" id="film" aria-label="Product">
+      <div class="film-frame" data-parallax>
+        <img class="og-hero light-only" src="./assets/og-branded.png" width="1200" height="630" alt="Tracko control tower" fetchpriority="high" />
+        <img class="og-hero dark-only" src="./assets/og-branded-dark.png" width="1200" height="630" alt="Tracko control tower — dark" />
+      </div>
+      <div class="film-fade" aria-hidden="true"></div>
+    </section>
+
+    <section class="strip reveal">
+      <p>Built private. Shared as an install — never as source.</p>
+    </section>
+
+    <section class="section reveal" id="downloads">
+      <h2>Downloads</h2>
+      <p class="section-lead">Grab the binary for your device. Phones ship as sideload IPA/APK for UAT; App Store / TestFlight export is ready when you have ASC keys. Mac also has a one-line install below.</p>
+      <div class="download-grid">
+        <article class="download-card">
+          <p class="phone-kicker">Desktop</p>
+          <h3>Mac</h3>
+          <p>Apple Silicon · notarized DMG</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download DMG</a>
+          </div>
+        </article>
+        <article class="download-card driver-tone">
+          <p class="phone-kicker">Doorstep</p>
+          <h3>Driver</h3>
+          <p>iPhone IPA · Android APK · hub URL + TRACKO-DEMO</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Driver.ipa" download>iPhone IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Driver.apk" download>Android APK</a>
+          </div>
+        </article>
+        <article class="download-card scanner-tone">
+          <p class="phone-kicker">Dock</p>
+          <h3>Scanner</h3>
+          <p>iPhone IPA · Android APK · hub URL + SCAN-DEMO</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Scanner.ipa" download>iPhone IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Scanner.apk" download>Android APK</a>
+          </div>
+        </article>
+      </div>
+      <p class="hint phones-hint">iOS: register device UDID on team NX667LTDQ2, then install with Xcode Devices or Apple Configurator. Live India rails &amp; Postgres SoT: <a href="./INTEGRATIONS.md">Integrations</a>. Guides: <a href="./VENDOR_UAT.md">Vendor UAT</a> · <a href="./MOBILE_RELEASE.md">Mobile release</a> · <a href="./WHATSAPP.md">WhatsApp</a>.</p>
+    </section>
+
+    <section class="section phones-stage reveal" id="phones">
+      <h2>Driver &amp; Scanner.</h2>
+      <p class="section-lead">Phone surfaces built for the dock and the door — pair to your private hub after you download above.</p>
+      <div class="phone-cards">
+        <article class="phone-card driver-tone">
+          <p class="phone-kicker">Doorstep</p>
+          <h3>Driver</h3>
+          <p>Live GPS, stop cards, OTP · COD · POD — one job at the door.</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Driver.ipa" download>IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Driver.apk" download>APK</a>
+          </div>
+        </article>
+        <article class="phone-card scanner-tone">
+          <p class="phone-kicker">Dock</p>
+          <h3>Scanner</h3>
+          <p>Full-bleed camera, Arrived / Sent modes, offline queue when Wi‑Fi drops.</p>
+          <div class="download-actions">
+            <a class="btn" href="./downloads/Tracko-Scanner.ipa" download>IPA</a>
+            <a class="btn btn-ghost" href="./downloads/Tracko-Scanner.apk" download>APK</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section wide reveal" id="gallery">
+      <h2>See it move.</h2>
+      <p class="section-lead">Control tower, live map, vendor onboard — the surfaces operators actually use.</p>
+      <div class="gallery">
+        <figure class="shot featured">
+          <img src="./assets/map-enhanced-tower.png" width="1200" height="750" alt="Tracko control tower with live fleet map" loading="lazy" />
+          <figcaption>Control tower · realtime fleet</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./assets/map-tracking.png" width="800" height="500" alt="Shipment tracking map" loading="lazy" />
+          <figcaption>Tracking</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./assets/map-public-track.png" width="800" height="500" alt="Public track view" loading="lazy" />
+          <figcaption>Public track</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./assets/desktop-vendors.png" width="800" height="500" alt="Vendor network on desktop" loading="lazy" />
+          <figcaption>Vendors</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="./assets/install-hero.png" width="800" height="500" alt="Tracko install experience" loading="lazy" />
+          <figcaption>Install</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="install">
+      <h2>One command. That’s it.</h2>
+      <p class="section-lead">Prefer the button? Use <a href="#downloads">Downloads</a>. Or copy the one-liner — Mac script fetches the DMG for you. Windows Setup still pending.</p>
+
+      <div class="install-card glass">
+        <div class="install-tabs" role="tablist" aria-label="Platform">
+          <button class="tab active" id="tab-mac" role="tab" data-os="mac" type="button" aria-selected="true" aria-controls="install-panel" tabindex="0">Mac</button>
+          <button class="tab" id="tab-win" role="tab" data-os="win" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Windows</button>
+          <button class="tab" id="tab-linux" role="tab" data-os="linux" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Linux</button>
+        </div>
+        <div id="install-panel" role="tabpanel" aria-labelledby="tab-mac">
+          <div class="cmd-row">
+            <code id="install-cmd">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
+            <button class="btn btn-shine" id="copy-btn" type="button">Copy</button>
+          </div>
+          <p class="hint" id="os-hint">macOS Apple Silicon. Installs to /Applications and launches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature deep dives -->
+    <section class="section band reveal" id="features">
+      <div class="inner">
+        <h2>Designed around the trip.</h2>
+        <p class="section-lead">Everything your ops stack juggles — in one record.</p>
+        <div class="feature-rows">
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◈</div>
+            <h3>Control tower</h3>
+            <p>Live lanes, exceptions, and settlement in a single ops surface — boardroom-clean, dock-sharp.</p>
+          </article>
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◎</div>
+            <h3>India-native</h3>
+            <p>GST splits, e-Way Part-B, SIM + FASTag + GPS, Tally export. Built for how freight moves here.</p>
+          </article>
+          <article class="feature card-lift">
+            <div class="feature-icon" aria-hidden="true">◉</div>
+            <h3>Realtime</h3>
+            <p>SSE fleet positions, alerts, and dispatch — the map moves while you watch.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase reveal">
+      <div class="showcase-copy">
+        <p class="eyebrow">Realtime</p>
+        <h2>The map that doesn’t wait.</h2>
+        <p>Fleet positions stream over SSE. Alerts and dispatch update without a refresh. Demo hubs tick GPS every ~2 seconds so you can feel it immediately.</p>
+      </div>
+      <div class="showcase-media">
+        <img src="./assets/map-control-tower.png" width="960" height="600" alt="Live control tower map" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="showcase invert reveal">
+      <div class="showcase-copy">
+        <p class="eyebrow">India pack</p>
+        <h2>Compliance without the spreadsheet.</h2>
+        <p>e-Way lifecycle, GST helpers, FASTag recon, ULIP-shaped Vahan/SARATHI gates — demo today, credentialed when your hub has keys.</p>
+      </div>
+      <div class="showcase-media">
+        <img src="./assets/map-tracking.png" width="960" height="600" alt="India logistics tracking" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section dark reveal" id="editions">
+      <h2>Choose your surface.</h2>
+      <p class="section-lead">Same product. Different doors in.</p>
+      <div class="tiers">
+        <article class="tier card-lift">
+          <h3>Desktop</h3>
+          <p class="price">Mac + Windows</p>
+          <p>Full control tower. One-command install on either OS.</p>
+        </article>
+        <article class="tier featured card-lift">
+          <h3>Ops suite</h3>
+          <p class="price">Recommended</p>
+          <p>Desktop + portal + phone Scanner / Driver against your private API hub.</p>
+        </article>
+        <article class="tier card-lift">
+          <h3>Private hub</h3>
+          <p class="price">Your LAN / VPS</p>
+          <p>Postgres SoT, JWT, Muse install. Source stays closed.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="section reveal" id="specs">
+      <h2>Tech specs</h2>
+      <p class="section-lead">What you need. What you get.</p>
+      <div class="specs">
+        <div class="spec-block">
+          <h3>System requirements</h3>
+          <dl>
+            <div><dt>Mac</dt><dd>Apple Silicon · macOS 13+</dd></div>
+            <div><dt>Windows</dt><dd>x64 · Windows 10/11 · WebView2</dd></div>
+            <div><dt>Hub API</dt><dd>Reachable HTTP(S) on :8080 (or your port)</dd></div>
+            <div><dt>Network</dt><dd>Install once · ops on LAN or VPN</dd></div>
+          </dl>
+        </div>
+        <div class="spec-block">
+          <h3>In this beta</h3>
+          <dl>
+            <div><dt>Hub</dt><dd id="spec-api-version">API / plan 0.3.0 · world_class</dd></div>
+            <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.1.0</dd></div>
+            <div><dt>Install</dt><dd>Homepage downloads + Mac one-liner</dd></div>
+            <div><dt>Realtime</dt><dd>SSE <code>/api/v1/events</code></dd></div>
+            <div><dt>Store</dt><dd>JSON + optional Postgres SoT · backup &amp; restore scripts</dd></div>
+            <div><dt>Languages</dt><dd>Customer portal in English · हिन्दी · ગુજરાતી</dd></div>
+            <div><dt>Production</dt><dd><code>DEMO_MODE=false</code> starts empty with one admin</dd></div>
+            <div><dt>India rails</dt><dd>Demo until hub credentials</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="section band reveal" id="privacy">
+      <div class="inner">
+        <h2>Private by design.</h2>
+        <p class="section-lead">Your hub. Your data. Public page only ships installers.</p>
+        <ul class="test-list">
+          <li>Application source is not published<span>This repo is install + marketing only</span></li>
+          <li>Hub runs on your machine or VPS<span>Postgres + JWT under your control</span></li>
+          <li>Downloads on this page<span>Mac DMG · phone IPA/APK · Windows Setup pending</span></li>
+          <li>Report issues without secrets<span>Redact API keys in feedback</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 1.5rem;"><a href="./SECURITY.md">Security policy</a> · <a href="./PRIVACY.md">Privacy note</a></p>
+      </div>
+    </section>
+
+    <!-- Test -->
+    <section class="section reveal" id="test">
+      <h2>Public test checklist</h2>
+      <p class="section-lead">Fifteen minutes. Tell us what broke.</p>
+      <ul class="test-list">
+        <li>Install on Mac with the command above<span>Allow Gatekeeper if prompted</span></li>
+        <li>Server / Settings → hub API<span><code>http://127.0.0.1:8080</code> or LAN IP</span></li>
+        <li>Control Tower · live map<span>SSE + GPS sim on demo hubs</span></li>
+        <li>Shipment · assign · Alerts<span>India rails may be demo</span></li>
+      </ul>
+      <div class="cta-row" style="margin-top: 2rem;">
+        <a class="btn" href="#install">Install Tracko</a>
+        <a class="btn btn-ghost" href="./PUBLIC_TEST.md">Full guide</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section band reveal" id="faq">
+      <div class="inner">
+        <h2>Questions, answered.</h2>
+        <div class="faq" id="faq-list">
+          <details open>
+            <summary>Is this free for public beta?</summary>
+            <p>Yes. Install and try the desktop against your hub. Commercial terms come later.</p>
+          </details>
+          <details>
+            <summary>Where do I download the apps?</summary>
+            <p>Use the <a href="#downloads">Downloads</a> section: Mac DMG, Driver/Scanner IPA and APK. Mac also has a one-line install command. Windows Setup.exe is not published yet.</p>
+          </details>
+          <details>
+            <summary>Windows says Setup missing?</summary>
+            <p><code>install.ps1</code> looks for <code>downloads/Tracko-TMS-Setup-x64.exe</code>. Mac is the primary public path until that artifact is published.</p>
+          </details>
+          <details>
+            <summary>Where does my data live?</summary>
+            <p>On the hub you run — JSON snapshot and optional Postgres. The public Pages site does not host your freight data.</p>
+          </details>
+          <details>
+            <summary>How do I back up and restore the hub?</summary>
+            <p><code>scripts/backup-hub.sh</code> saves a snapshot (set <code>KEEP=48</code> to prune); <code>scripts/restore-hub.sh</code> restores one after taking a safety backup of the current state. See the ops guide in the hub repo.</p>
+          </details>
+          <details>
+            <summary>Is the customer portal available in Hindi and Gujarati?</summary>
+            <p>Yes: sign-in, tracking, shipments, invoices, bookings and disputes, plus the carrier and tutorial pages. The wording is a first draft; tell us what to fix.</p>
+          </details>
+          <details>
+            <summary>Can I point multiple desktops at one hub?</summary>
+            <p>Yes. Set Server / Settings (or <code>TRACKO_API_URL</code> before Windows install) to the same API base.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status -->
+    <section class="section reveal" id="status">
+      <h2>Beta status</h2>
+      <p class="section-lead">Honest snapshot of what’s live.</p>
+      <div class="status-grid">
+        <div class="status ok"><strong>Mac install</strong><span>Live via install.sh</span></div>
+        <div class="status ok"><strong>GH Pages</strong><span>Marketing + scripts</span></div>
+        <div class="status ok"><strong>Realtime SSE</strong><span>Hub feature</span></div>
+        <div class="status warn" id="status-windows"><strong>Windows Setup</strong><span>Script ready · artifact pending</span></div>
+        <div class="status warn"><strong>India live rails</strong><span>Demo until credentials</span></div>
+        <div class="status ok"><strong>Private source</strong><span>By design</span></div>
+      </div>
+      <p class="hint" style="margin-top: 1.25rem;"><a href="./CHANGELOG.md">Changelog</a> · <a href="./downloads/manifest.json">manifest.json</a></p>
+    </section>
+
+    <!-- Press -->
+    <section class="section band reveal" id="press">
+      <div class="inner">
+        <h2>Brand kit</h2>
+        <p class="section-lead">Logo mark for blogs, decks, and App Store listings.</p>
+        <div class="press-row">
+          <a class="press-card" href="./assets/logo-mark.svg">
+            <img src="./assets/logo-mark.svg" width="56" height="56" alt="" />
+            <span>SVG mark</span>
+          </a>
+          <a class="press-card" href="./assets/logo-mark-512.png">
+            <img src="./assets/logo-mark-512.png" width="56" height="56" alt="" />
+            <span>PNG 512</span>
+          </a>
+          <a class="press-card" href="./assets/logo-mark-1024.png">
+            <img src="./assets/logo-mark-1024.png" width="56" height="56" alt="" />
+            <span>PNG 1024</span>
+          </a>
+          <a class="press-card" href="./assets/og-branded.png">
+            <img src="./assets/og-branded.png" width="96" height="50" alt="" style="border-radius:8px;object-fit:cover;" />
+            <span>OG image</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bare reveal finale">
+      <h2>Ready when you are.</h2>
+      <div class="install-card glass" style="margin-top: 1.5rem;">
+        <div class="cmd-row">
+          <code id="install-cmd-2">curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash</code>
+          <button class="btn btn-shine" id="copy-btn-2" type="button">Copy</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" hidden>Copied to clipboard</div>
+
+  <footer class="footer footer-rich">
+    <div class="footer-brand">
+      <img src="./assets/logo-mark.svg" width="20" height="20" alt="" />
+      Tracko by <a href="https://github.com/zyvorai">Zyvor</a>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="./PUBLIC_TEST.md">Public test</a>
+      <a href="./CHANGELOG.md">Changelog</a>
+      <a href="./PRIVACY.md">Privacy</a>
+      <a href="./SECURITY.md">Security</a>
+      <a href="./downloads/manifest.json">Manifest</a>
+      <a href="https://github.com/zyvorai/tracko-install">GitHub</a>
+    </nav>
+    <span class="footer-note">Public beta · install only · source private</span>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>
