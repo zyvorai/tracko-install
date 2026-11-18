@@ -30,6 +30,8 @@
 
 ---
 
+[Client overview (PDF)](docs/Tracko-Client-Overview.pdf)
+
 ## Install
 
 Apple-clean landing. Muse-style **one command**, plus Mac DMG and phone IPA/APK buttons in the homepage Downloads section.
