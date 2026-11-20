@@ -8,7 +8,7 @@
       "url": "https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/Tracko-TMS-0.2.0-aarch64.dmg",
       "label": "Mac (Apple Silicon)",
       "command": "curl -fsSL {base}/install.sh | bash",
-      "notes": "Notarized DMG from the v0.2.0 release.",
+      "notes": "Notarized DMG. The v0.2.0 release has no asset attached yet; email sales@zyvor.dev for the build.",
       "public_binary": true
     }
   },

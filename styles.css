@@ -1312,3 +1312,6 @@ html:not([data-theme="dark"]) .driver-tone {
   display: flex;
   flex-direction: column;
 }
+
+.trial-block { margin-top: 1.25rem; }
+.trial-block ul { margin: .5rem 0 .75rem 1.1rem; padding: 0; }

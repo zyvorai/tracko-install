@@ -77,7 +77,7 @@
       {
         "@type": "Question",
         "name": "Is there a Windows version?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Tracko desktop is Mac only (Apple Silicon). Phones use the Driver and Scanner apps." }
+        "acceptedAnswer": { "@type": "Answer", "text": "There is no native Windows desktop app. On Windows (and Linux) open Tracko in the browser against your hub, with the same 30-day trial key. Phones use the Driver and Scanner apps." }
       }
     ]
   }
@@ -158,8 +158,9 @@
           <h3>Mac</h3>
           <p>Apple Silicon · notarized DMG</p>
           <div class="download-actions">
-            <a class="btn" href="https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/Tracko-TMS-0.2.0-aarch64.dmg" download>Download DMG</a>
+            <a class="btn" href="mailto:sales@zyvor.dev?subject=Tracko%20DMG%200.2.0%20build">Request DMG 0.2.0</a>
           </div>
+          <p class="hint">DMG 0.2.0 is being published: email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a> for the build now.</p>
         </article>
         <article class="download-card driver-tone">
           <p class="phone-kicker">Doorstep</p>
@@ -179,6 +180,17 @@
             <a class="btn btn-ghost" href="./downloads/Tracko-Scanner.apk" download>Android APK</a>
           </div>
         </article>
+      </div>
+      <div class="download-card trial-block">
+        <h3>Trial on every device</h3>
+        <p>One 30-day trial key works everywhere, because your Tracko hub checks it, not each device.</p>
+        <ul>
+          <li><strong>Hub + web app:</strong> in any browser on Windows, Linux or Mac</li>
+          <li><strong>Mac desktop:</strong> Apple Silicon DMG</li>
+          <li><strong>Android:</strong> Driver and Scanner APK</li>
+          <li><strong>iPhone:</strong> Driver and Scanner IPA</li>
+        </ul>
+        <p>Get the key: email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a>. Set it on your hub as <code>TRACKO_LICENCE_KEY</code>, or save it as a <code>licence.key</code> file next to the hub data file, then restart the hub. <code>/health</code> shows the status. When the trial ends nothing is disabled and no data is lost.</p>
       </div>
       <p class="hint phones-hint">iOS: register device UDID on team NX667LTDQ2, then install with Xcode Devices or Apple Configurator. Live India rails &amp; Postgres SoT: <a href="./INTEGRATIONS.md">Integrations</a>. Guides: <a href="./VENDOR_UAT.md">Vendor UAT</a> · <a href="./MOBILE_RELEASE.md">Mobile release</a> · <a href="./WHATSAPP.md">WhatsApp</a>.</p>
     </section>
@@ -399,7 +411,7 @@
           </details>
           <details>
             <summary>Is there a Windows version?</summary>
-            <p>No. The desktop app is Mac only (Apple Silicon). Phones use the Driver and Scanner apps.</p>
+            <p>There is no native Windows desktop app. On Windows (and Linux) open Tracko in the browser against your hub, with the same 30-day trial key. Phones use the Driver and Scanner apps.</p>
           </details>
           <details>
             <summary>Where does my data live?</summary>
