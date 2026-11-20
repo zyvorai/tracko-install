@@ -52,7 +52,10 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "macOS",
     "description": "Logistics TMS for India’s freight — control tower, GST, e-Way, FASTag. Public beta.",
-    "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "INR" },
+    "offers": [
+      { "@type": "Offer", "name": "Per branch per month (India, incl. 18% GST)", "price": "2999", "priceCurrency": "INR", "url": "https://zyvor.dev/buy" },
+      { "@type": "Offer", "name": "Per branch per month (outside India, excl. tax)", "price": "30", "priceCurrency": "USD", "url": "https://zyvor.dev/buy" }
+    ],
     "installUrl": "https://zyvorai.github.io/tracko-install/install.sh",
     "image": "https://zyvorai.github.io/tracko-install/assets/og-branded.png",
     "publisher": { "@type": "Organization", "name": "Zyvor", "url": "https://github.com/zyvorai" },
@@ -315,17 +318,17 @@
 
     <section class="section dark reveal" id="pricing">
       <h2>Pricing.</h2>
-      <p class="section-lead">30-day trial first. Prices in INR, GST included. The Driver and Scanner phone apps are free. No online checkout yet: email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a> for a trial key or a licence.</p>
+      <p class="section-lead">30-day trial first. Prices: INR incl. 18% GST in India; US dollars excl. tax elsewhere (VAT, GST or sales tax added where applicable). Pay online by UPI, card or netbanking; international cards work (charged in rupees); or request a US-dollar invoice by bank transfer. Custom pricing: <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a>. Monthly plans are invoiced until Razorpay Subscriptions open. The Driver and Scanner phone apps are free.</p>
       <div class="tiers">
         <article class="tier card-lift">
           <h3>Single branch</h3>
           <p class="price">₹2,999 / branch / month</p>
-          <p>Or ₹29,999 per branch per year (two months free). Full product, one hub.</p>
+          <p>About US$30 excl. tax outside India. Or ₹29,999 per branch per year (about US$303 excl. tax; two months free). Full product, one hub.</p>
         </article>
         <article class="tier featured card-lift">
           <h3>Team</h3>
           <p class="price">₹24,999 / branch / year</p>
-          <p>For multi-branch operators: minimum 5 branches (₹1,24,995 a year), same per-branch price at renewal.</p>
+          <p>About US$252 excl. tax outside India. For multi-branch operators: minimum 5 branches (₹1,24,995 a year, about US$1,261 excl. tax), same per-branch price at renewal.</p>
         </article>
         <article class="tier card-lift">
           <h3>Enterprise</h3>
@@ -333,6 +336,7 @@
           <p>26+ branches, SSO, SLA. Private hub on your LAN or VPS; source stays closed.</p>
         </article>
       </div>
+      <p style="margin-top:1.25rem;"><a class="btn btn-shine" href="https://zyvor.dev/buy">Buy</a> <a class="btn btn-ghost" href="mailto:sales@zyvor.dev?subject=Tracko%2030-day%20trial%20key">Start 30-day trial</a></p>
       <p class="hint" style="margin-top:1.25rem;">Licence keys are soft: when a key or trial ends Tracko keeps running and your data stays yours. Put the key in <code>TRACKO_LICENCE_KEY</code> on your hub (or a <code>licence.key</code> file next to the hub data file); <code>/health</code> shows the licence status.</p>
     </section>
 
