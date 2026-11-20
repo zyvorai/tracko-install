@@ -77,7 +77,7 @@
       {
         "@type": "Question",
         "name": "Is there a Windows version?",
-        "acceptedAnswer": { "@type": "Answer", "text": "There is no native Windows desktop app. On Windows (and Linux) open Tracko in the browser against your hub, with the same 30-day trial key. Phones use the Driver and Scanner apps." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. A Windows 10/11 (x64) installer is built unsigned in CI, so Windows SmartScreen may show an unknown-publisher warning (choose More info, then Run anyway; a signed build is coming). It uses the same 30-day trial key. Linux uses the browser against your hub. Phones use the Driver and Scanner apps." }
       }
     ]
   }
@@ -162,6 +162,16 @@
           </div>
           <p class="hint">DMG 0.2.0 is being published: email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a> for the build now.</p>
         </article>
+        <article class="download-card">
+          <p class="phone-kicker">Desktop</p>
+          <h3>Windows</h3>
+          <p>Windows 10/11 x64 · installer (.exe) · 30-day trial key from <a href="mailto:sales@zyvor.dev?subject=Tracko%20Windows%2030-day%20trial%20key">sales@zyvor.dev</a></p>
+          <div class="download-actions">
+            <a class="btn" href="https://github.com/zyvorai/tracko-install/releases">Releases page</a>
+          </div>
+          <p class="hint">SHA-256: published beside the installer as <code>Tracko-TMS-Setup-x64.exe.sha256</code>. The installer is being published to the Releases page; until it appears there, email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a>.</p>
+          <p class="hint">Unsigned build: Windows SmartScreen may show an unknown-publisher warning; choose More info, then Run anyway. A signed build is coming.</p>
+        </article>
         <article class="download-card driver-tone">
           <p class="phone-kicker">Doorstep</p>
           <h3>Driver</h3>
@@ -186,6 +196,7 @@
         <p>One 30-day trial key works everywhere, because your Tracko hub checks it, not each device.</p>
         <ul>
           <li><strong>Hub + web app:</strong> in any browser on Windows, Linux or Mac</li>
+          <li><strong>Windows desktop:</strong> x64 installer (unsigned)</li>
           <li><strong>Mac desktop:</strong> Apple Silicon DMG</li>
           <li><strong>Android:</strong> Driver and Scanner APK</li>
           <li><strong>iPhone:</strong> Driver and Scanner IPA</li>
@@ -411,7 +422,7 @@
           </details>
           <details>
             <summary>Is there a Windows version?</summary>
-            <p>There is no native Windows desktop app. On Windows (and Linux) open Tracko in the browser against your hub, with the same 30-day trial key. Phones use the Driver and Scanner apps.</p>
+            <p>Yes. Use the Windows 10/11 (x64) installer in Downloads, with the same 30-day trial key. It is unsigned, so SmartScreen may warn: choose More info, then Run anyway. Linux uses the browser against your hub. Phones use the Driver and Scanner apps.</p>
           </details>
           <details>
             <summary>Where does my data live?</summary>

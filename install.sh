@@ -15,8 +15,8 @@ echo "  base=$BASE_URL"
 echo
 
 if [[ "$OS" != "Darwin" ]]; then
-  echo "This script installs the macOS Apple Silicon DMG. Tracko desktop is Mac only."
-  echo "On Windows or Linux, open Tracko in your browser against your hub; the same 30-day trial key works (sales@zyvor.dev)."
+  echo "This script installs the macOS Apple Silicon DMG. For Windows 10/11 x64 see the Windows installer under Downloads."
+  echo "On Linux, open Tracko in your browser against your hub; the same 30-day trial key works (sales@zyvor.dev)."
   exit 1
 fi
 

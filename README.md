@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Freight, finally clear.</strong><br />
-  Logistics TMS for India · Mac desktop · web on any OS · phones · 30-day trial · Private source
+  Logistics TMS for India · Mac + Windows desktop · web on any OS · phones · 30-day trial · Private source
 </p>
 
 <p align="center">

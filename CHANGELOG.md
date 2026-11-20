@@ -1,5 +1,8 @@
 # Changelog
 
+## Windows installer (unsigned)
+- Windows 10/11 x64 installer is built unsigned in CI (SHA-256 beside it) and listed in Downloads. SmartScreen may warn; choose More info, then Run anyway. Same 30-day trial key. The Releases page link is used until the asset is published.
+
 ## Desktop 0.2.0 — Mac only, notarized, 30-day trial keys
 - The desktop app is Mac only (Apple Silicon). Windows is no longer offered: `install.ps1`, the Windows pages and the pending Setup.exe were removed.
 - The hub reports a soft licence status in `/health` (`licence`): ZYV1 Ed25519 keys, 30-day trial keys, never disables features or deletes data. Set `TRACKO_LICENCE_KEY` or put `licence.key` next to the hub data file.
