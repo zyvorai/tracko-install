@@ -1,5 +1,11 @@
 # Changelog
 
+## Desktop 0.2.0 — Mac only, notarized, 30-day trial keys
+- The desktop app is Mac only (Apple Silicon). Windows is no longer offered: `install.ps1`, the Windows pages and the pending Setup.exe were removed.
+- The hub reports a soft licence status in `/health` (`licence`): ZYV1 Ed25519 keys, 30-day trial keys, never disables features or deletes data. Set `TRACKO_LICENCE_KEY` or put `licence.key` next to the hub data file.
+- The Mac DMG is now a GitHub release (v0.2.0, notarized and stapled); older DMGs were removed from `downloads/`.
+- Pricing section added (see the site).
+
 ## 0.4.0 — Hardened hub · customer portal in हिन्दी / ગુજરાતી · production mode
 
 Hub (private; see [INTEGRATIONS.md](./INTEGRATIONS.md) and the hub's ops guide)
@@ -36,7 +42,7 @@ Apps
 ## 0.3.0 — Public beta
 
 - Apple-style marketing site on GitHub Pages
-- Muse-style one-command install (Mac live; Windows script ready)
+- Muse-style one-command install (Mac)
 - Crisp Tracko route logo (nav, hero, icons, brand kit)
 - Product gallery + feature showcases
 - Tech specs, FAQ, privacy, security, status

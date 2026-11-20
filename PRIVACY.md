@@ -12,7 +12,7 @@ When you run the Tracko API hub:
 
 ## Install telemetry
 
-`install.sh` / `install.ps1` download binaries from this site (or your `TRACKO_BASE_URL`). They do not phone home analytics beyond normal HTTPS CDN/GitHub request logs.
+`install.sh` downloads the Mac DMG from this repository's GitHub release (override with `TRACKO_DMG_URL`). They do not phone home analytics beyond normal HTTPS CDN/GitHub request logs.
 
 ## Feedback
 

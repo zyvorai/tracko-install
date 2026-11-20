@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Tracko — Public beta</title>
-  <meta name="description" content="Tracko is the logistics TMS for India’s freight. Public beta — one command to install on Mac or Windows. Live control tower, GST, e-Way, SIM, FASTag, RFQ." />
+  <meta name="description" content="Tracko is the logistics TMS for India’s freight. Public beta — one command to install on Mac. Live control tower, GST, e-Way, SIM, FASTag, RFQ." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
@@ -26,7 +26,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tracko — Public beta" />
-  <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac or Windows." />
+  <meta name="twitter:description" content="Logistics TMS for India. One command to install on Mac." />
   <meta name="twitter:image" content="https://zyvorai.github.io/tracko-install/assets/og-branded.png" />
   <meta name="twitter:image:alt" content="Tracko control tower — public beta" />
 
@@ -50,9 +50,9 @@
     "@type": "SoftwareApplication",
     "name": "Tracko",
     "applicationCategory": "BusinessApplication",
-    "operatingSystem": "macOS, Windows 10, Windows 11",
+    "operatingSystem": "macOS",
     "description": "Logistics TMS for India’s freight — control tower, GST, e-Way, FASTag. Public beta.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "offers": { "@type": "Offer", "price": "2999", "priceCurrency": "INR" },
     "installUrl": "https://zyvorai.github.io/tracko-install/install.sh",
     "image": "https://zyvorai.github.io/tracko-install/assets/og-branded.png",
     "publisher": { "@type": "Organization", "name": "Zyvor", "url": "https://github.com/zyvorai" },
@@ -76,8 +76,8 @@
       },
       {
         "@type": "Question",
-        "name": "Where is the .exe download?",
-        "acceptedAnswer": { "@type": "Answer", "text": "There is no public .exe button. Windows uses one PowerShell command; the script fetches Setup when published." }
+        "name": "Is there a Windows version?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Tracko desktop is Mac only (Apple Silicon). Phones use the Driver and Scanner apps." }
       }
     ]
   }
@@ -87,7 +87,7 @@
   <a class="skip" href="#install">Skip to install</a>
 
   <div class="beta">
-    Public beta · hub 0.3.0 · desktop 0.1.0 ·
+    Public beta · hub 0.3.0 · desktop 0.2.0 ·
     <a href="./CHANGELOG.md">What’s new</a> ·
     <a href="#status">Status</a>
   </div>
@@ -121,7 +121,7 @@
     <section class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
-      <p class="eyebrow animate" id="hero-eyebrow">Mac · Windows · Phones</p>
+      <p class="eyebrow animate" id="hero-eyebrow">Mac · Phones</p>
       <div class="hero-brand animate">
         <div class="hero-mark-wrap">
           <img class="hero-mark" src="./assets/logo-mark.svg" width="112" height="112" alt="Tracko" />
@@ -134,7 +134,7 @@
         <a class="btn btn-shine" href="#downloads">Download apps</a>
         <button class="btn btn-ghost" id="hero-copy" type="button">Copy Mac install</button>
       </div>
-      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">Mac DMG · iPhone IPA · Android APK · Windows command when ready</p>
+      <p class="hint animate" style="margin-top: 1rem;" id="hero-hint">Mac DMG · iPhone IPA · Android APK · 30-day trial key</p>
     </section>
 
     <section class="film" id="film" aria-label="Product">
@@ -158,7 +158,7 @@
           <h3>Mac</h3>
           <p>Apple Silicon · notarized DMG</p>
           <div class="download-actions">
-            <a class="btn" href="./downloads/Tracko-TMS-0.1.0-aarch64.dmg" download>Download DMG</a>
+            <a class="btn" href="https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/Tracko-TMS-0.2.0-aarch64.dmg" download>Download DMG</a>
           </div>
         </article>
         <article class="download-card driver-tone">
@@ -238,13 +238,11 @@
 
     <section class="section reveal" id="install">
       <h2>One command. That’s it.</h2>
-      <p class="section-lead">Prefer the button? Use <a href="#downloads">Downloads</a>. Or copy the one-liner — Mac script fetches the DMG for you. Windows Setup still pending.</p>
+      <p class="section-lead">Prefer the button? Use <a href="#downloads">Downloads</a>. Or copy the one-liner — Mac script fetches the DMG for you.</p>
 
       <div class="install-card glass">
         <div class="install-tabs" role="tablist" aria-label="Platform">
           <button class="tab active" id="tab-mac" role="tab" data-os="mac" type="button" aria-selected="true" aria-controls="install-panel" tabindex="0">Mac</button>
-          <button class="tab" id="tab-win" role="tab" data-os="win" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Windows</button>
-          <button class="tab" id="tab-linux" role="tab" data-os="linux" type="button" aria-selected="false" aria-controls="install-panel" tabindex="-1">Linux</button>
         </div>
         <div id="install-panel" role="tabpanel" aria-labelledby="tab-mac">
           <div class="cmd-row">
@@ -303,26 +301,27 @@
       </div>
     </section>
 
-    <section class="section dark reveal" id="editions">
-      <h2>Choose your surface.</h2>
-      <p class="section-lead">Same product. Different doors in.</p>
+    <section class="section dark reveal" id="pricing">
+      <h2>Pricing.</h2>
+      <p class="section-lead">30-day trial first. Prices in INR, GST included. The Driver and Scanner phone apps are free. No online checkout yet: email <a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a> for a trial key or a licence.</p>
       <div class="tiers">
         <article class="tier card-lift">
-          <h3>Desktop</h3>
-          <p class="price">Mac + Windows</p>
-          <p>Full control tower. One-command install on either OS.</p>
+          <h3>Single branch</h3>
+          <p class="price">₹2,999 / branch / month</p>
+          <p>Or ₹29,999 per branch per year (two months free). Full product, one hub.</p>
         </article>
         <article class="tier featured card-lift">
-          <h3>Ops suite</h3>
-          <p class="price">Recommended</p>
-          <p>Desktop + portal + phone Scanner / Driver against your private API hub.</p>
+          <h3>Team</h3>
+          <p class="price">₹24,999 / branch / year</p>
+          <p>For multi-branch operators: minimum 5 branches (₹1,24,995 a year), same per-branch price at renewal.</p>
         </article>
         <article class="tier card-lift">
-          <h3>Private hub</h3>
-          <p class="price">Your LAN / VPS</p>
-          <p>Postgres SoT, JWT, Muse install. Source stays closed.</p>
+          <h3>Enterprise</h3>
+          <p class="price">Quote</p>
+          <p>26+ branches, SSO, SLA. Private hub on your LAN or VPS; source stays closed.</p>
         </article>
       </div>
+      <p class="hint" style="margin-top:1.25rem;">Licence keys are soft: when a key or trial ends Tracko keeps running and your data stays yours. Put the key in <code>TRACKO_LICENCE_KEY</code> on your hub (or a <code>licence.key</code> file next to the hub data file); <code>/health</code> shows the licence status.</p>
     </section>
 
     <!-- Specs -->
@@ -334,7 +333,6 @@
           <h3>System requirements</h3>
           <dl>
             <div><dt>Mac</dt><dd>Apple Silicon · macOS 13+</dd></div>
-            <div><dt>Windows</dt><dd>x64 · Windows 10/11 · WebView2</dd></div>
             <div><dt>Hub API</dt><dd>Reachable HTTP(S) on :8080 (or your port)</dd></div>
             <div><dt>Network</dt><dd>Install once · ops on LAN or VPN</dd></div>
           </dl>
@@ -343,7 +341,7 @@
           <h3>In this beta</h3>
           <dl>
             <div><dt>Hub</dt><dd id="spec-api-version">API / plan 0.3.0 · world_class</dd></div>
-            <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.1.0</dd></div>
+            <div><dt>Desktop</dt><dd id="spec-desktop-version">Desktop build 0.2.0</dd></div>
             <div><dt>Install</dt><dd>Homepage downloads + Mac one-liner</dd></div>
             <div><dt>Realtime</dt><dd>SSE <code>/api/v1/events</code></dd></div>
             <div><dt>Store</dt><dd>JSON + optional Postgres SoT · backup &amp; restore scripts</dd></div>
@@ -363,7 +361,7 @@
         <ul class="test-list">
           <li>Application source is not published<span>This repo is install + marketing only</span></li>
           <li>Hub runs on your machine or VPS<span>Postgres + JWT under your control</span></li>
-          <li>Downloads on this page<span>Mac DMG · phone IPA/APK · Windows Setup pending</span></li>
+          <li>Downloads on this page<span>Mac DMG · phone IPA/APK</span></li>
           <li>Report issues without secrets<span>Redact API keys in feedback</span></li>
         </ul>
         <p class="hint" style="margin-top: 1.5rem;"><a href="./SECURITY.md">Security policy</a> · <a href="./PRIVACY.md">Privacy note</a></p>
@@ -397,11 +395,11 @@
           </details>
           <details>
             <summary>Where do I download the apps?</summary>
-            <p>Use the <a href="#downloads">Downloads</a> section: Mac DMG, Driver/Scanner IPA and APK. Mac also has a one-line install command. Windows Setup.exe is not published yet.</p>
+            <p>Use the <a href="#downloads">Downloads</a> section: Mac DMG, Driver/Scanner IPA and APK. Mac also has a one-line install command. </p>
           </details>
           <details>
-            <summary>Windows says Setup missing?</summary>
-            <p><code>install.ps1</code> looks for <code>downloads/Tracko-TMS-Setup-x64.exe</code>. Mac is the primary public path until that artifact is published.</p>
+            <summary>Is there a Windows version?</summary>
+            <p>No. The desktop app is Mac only (Apple Silicon). Phones use the Driver and Scanner apps.</p>
           </details>
           <details>
             <summary>Where does my data live?</summary>
@@ -417,7 +415,7 @@
           </details>
           <details>
             <summary>Can I point multiple desktops at one hub?</summary>
-            <p>Yes. Set Server / Settings (or <code>TRACKO_API_URL</code> before Windows install) to the same API base.</p>
+            <p>Yes. Set Server / Settings to the same API base.</p>
           </details>
         </div>
       </div>
@@ -431,7 +429,6 @@
         <div class="status ok"><strong>Mac install</strong><span>Live via install.sh</span></div>
         <div class="status ok"><strong>GH Pages</strong><span>Marketing + scripts</span></div>
         <div class="status ok"><strong>Realtime SSE</strong><span>Hub feature</span></div>
-        <div class="status warn" id="status-windows"><strong>Windows Setup</strong><span>Script ready · artifact pending</span></div>
         <div class="status warn"><strong>India live rails</strong><span>Demo until credentials</span></div>
         <div class="status ok"><strong>Private source</strong><span>By design</span></div>
       </div>

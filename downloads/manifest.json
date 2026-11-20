@@ -1,22 +1,15 @@
 {
   "product": "Tracko TMS",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "world_class": "0.3.0",
   "platforms": {
     "macos-arm64": {
-      "file": "Tracko-TMS-0.1.0-aarch64.dmg",
+      "file": "Tracko-TMS-0.2.0-aarch64.dmg",
+      "url": "https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/Tracko-TMS-0.2.0-aarch64.dmg",
       "label": "Mac (Apple Silicon)",
       "command": "curl -fsSL {base}/install.sh | bash",
-      "notes": "One-command install and/or homepage DMG download.",
+      "notes": "Notarized DMG from the v0.2.0 release.",
       "public_binary": true
-    },
-    "windows-x64": {
-      "file": "Tracko-TMS-Setup-x64.exe",
-      "label": "Windows 10/11 (x64)",
-      "command": "irm {base}/install.ps1 | iex",
-      "notes": "PowerShell command ready; Setup.exe artifact still pending.",
-      "public_binary": false,
-      "published": false
     }
   },
   "api_default": "http://localhost:8080",
@@ -38,8 +31,7 @@
     "status": "ready",
     "api_version": "0.3.0",
     "plan": "world_class",
-    "desktop_build": "0.1.0",
-    "windows": "pending_ci"
+    "desktop_build": "0.2.0"
   },
   "distribution": "homepage_downloads_and_install_command"
 }

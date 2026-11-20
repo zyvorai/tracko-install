@@ -2,20 +2,14 @@ const PAGES = 'https://zyvorai.github.io/tracko-install';
 
 const cmds = {
   mac: `curl -fsSL ${PAGES}/install.sh | bash`,
-  win: `irm ${PAGES}/install.ps1 | iex`,
-  linux: `# Linux AppImage — coming soon`,
 };
 
 const hints = {
   en: {
     mac: 'macOS Apple Silicon. Installs to /Applications and launches.',
-    win: 'Windows 10/11 x64. One PowerShell line — Setup.exe fetched when published (no public .exe button).',
-    linux: 'Linux AppImage is next. Use Mac or Windows for public beta.',
   },
   hi: {
     mac: 'macOS Apple Silicon — /Applications में इंस्टॉल होकर लॉन्च होगा।',
-    win: 'Windows 10/11 x64 — एक PowerShell कमांड। Setup प्रकाशित होने पर स्क्रिप्ट लाएगी।',
-    linux: 'Linux AppImage जल्द। अभी Mac या Windows इस्तेमाल करें।',
   },
 };
 
@@ -35,12 +29,8 @@ const copy = {
 };
 
 let lang = localStorage.getItem('tracko-lang') || 'en';
-let windowsPublished = false;
 
 function setOs(os) {
-  if (os === 'linux') {
-    // keep selectable for honesty, but non-runnable
-  }
   document.querySelectorAll('.tab').forEach((t) => {
     const on = t.dataset.os === os;
     t.classList.toggle('active', on);
@@ -55,37 +45,22 @@ function setOs(os) {
   const pack = hints[lang] || hints.en;
   const hint = document.getElementById('os-hint');
   if (hint) {
-    let text = pack[os] || pack.mac;
-    if (os === 'win' && windowsPublished) {
-      text = lang === 'hi'
-        ? 'Windows Setup उपलब्ध — स्क्रिप्ट बाइनरी लाएगी।'
-        : 'Windows Setup is published — the script will fetch it.';
-    }
-    hint.textContent = text;
+    hint.textContent = pack[os] || pack.mac;
   }
   const heroHint = document.getElementById('hero-hint');
   if (heroHint) {
-    heroHint.textContent =
-      os === 'win'
-        ? (windowsPublished ? 'Windows · PowerShell · ready' : 'Windows · PowerShell · Setup pending')
-        : os === 'linux'
-          ? 'Linux · coming soon'
-          : 'macOS Apple Silicon · no public .exe';
+    heroHint.textContent = 'macOS Apple Silicon · Mac only · 30-day trial key';
   }
   const eyebrow = document.getElementById('hero-eyebrow');
   if (eyebrow) {
-    eyebrow.textContent =
-      os === 'win' ? 'Windows · x64' : os === 'linux' ? 'Linux · coming' : 'Mac · Apple Silicon';
+    eyebrow.textContent = 'Mac · Apple Silicon';
   }
   const panel = document.getElementById('install-panel');
   if (panel) panel.setAttribute('aria-labelledby', `tab-${os}`);
-  window.__trackoCmd = os === 'linux' ? cmds.mac : cmd;
+  window.__trackoCmd = cmd;
 }
 
 function detectOs() {
-  const ua = navigator.userAgent || '';
-  if (/Windows/i.test(ua)) return 'win';
-  if (/Linux/i.test(ua) && !/Android/i.test(ua)) return 'linux';
   return 'mac';
 }
 
@@ -123,10 +98,7 @@ function showToast(msg) {
 }
 
 async function copyText(text, btn) {
-  if (!text || text.trim().startsWith('#')) {
-    showToast(lang === 'hi' ? 'Linux जल्द आ रहा है' : 'Linux coming soon');
-    return;
-  }
+  if (!text) return;
   try {
     await navigator.clipboard.writeText(text);
     const prev = btn.textContent;
@@ -186,7 +158,7 @@ document.getElementById('theme-toggle')?.addEventListener('click', () => {
   applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 });
 
-/* Manifest → version badge + windows status */
+/* Manifest → version badge */
 fetch('./downloads/manifest.json')
   .then((r) => r.json())
   .then((m) => {
@@ -201,27 +173,7 @@ fetch('./downloads/manifest.json')
     const deskEl = document.getElementById('spec-desktop-version');
     if (deskEl) deskEl.textContent = `Desktop build ${desk}`;
 
-    const winFile = m.platforms?.['windows-x64']?.file || 'Tracko-TMS-Setup-x64.exe';
-    const marked = m.platforms?.['windows-x64']?.published === true || m.pilot?.windows === 'live';
-    return fetch(`./downloads/${winFile}`, { method: 'HEAD' })
-      .then((res) => {
-        windowsPublished = marked || res.ok;
-      })
-      .catch(() => {
-        windowsPublished = marked;
-      })
-      .finally(() => {
-        const cell = document.getElementById('status-windows');
-        if (cell) {
-          cell.classList.toggle('ok', windowsPublished);
-          cell.classList.toggle('warn', !windowsPublished);
-          cell.querySelector('span').textContent = windowsPublished
-            ? 'Setup published · install.ps1 ready'
-            : 'Script ready · artifact pending';
-        }
-        const os = document.querySelector('.tab.active')?.dataset.os || detectOs();
-        setOs(os);
-      });
+    setOs(document.querySelector('.tab.active')?.dataset.os || detectOs());
   })
   .catch(() => {});
 

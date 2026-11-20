@@ -15,11 +15,7 @@ echo "  base=$BASE_URL"
 echo
 
 if [[ "$OS" != "Darwin" ]]; then
-  echo "This script installs the macOS Apple Silicon DMG."
-  echo "On Windows, open PowerShell and run:"
-  echo "  irm ${BASE_URL}/install.ps1 | iex"
-  echo "Optional hub API:"
-  echo "  \$env:TRACKO_API_URL='http://YOUR_SERVER:8080'; irm ${BASE_URL}/install.ps1 | iex"
+  echo "This script installs the macOS Apple Silicon DMG. Tracko desktop is Mac only."
   exit 1
 fi
 
@@ -28,10 +24,10 @@ if [[ "$ARCH" != "arm64" ]]; then
   exit 1
 fi
 
-DMG_NAME="Tracko-TMS-0.1.0-aarch64.dmg"
+DMG_NAME="Tracko-TMS-0.2.0-aarch64.dmg"
 TMP_DIR="$(mktemp -d)"
 DMG_PATH="$TMP_DIR/$DMG_NAME"
-URL="$BASE_URL/downloads/$DMG_NAME"
+URL="${TRACKO_DMG_URL:-https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/$DMG_NAME}"
 
 echo "Downloading $URL"
 curl -fL --progress-bar "$URL" -o "$DMG_PATH"

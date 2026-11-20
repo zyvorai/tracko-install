@@ -75,6 +75,6 @@ Note the machine’s **LAN IP**. Testers use `http://<LAN>:8088` (or `:8080` if 
 
 Include: OS, hub URL (redact secrets), steps, screenshot. Label `vendor-uat`.
 
-Windows Setup.exe is not in this UAT pack. India NIC/ULIP/WhatsApp/FASTag stay demo until hub env keys are set — then routes go live ([INTEGRATIONS.md](./INTEGRATIONS.md)). Postgres with `DATABASE_URL` hydrates `app_snapshots` (`store: postgres+json-cache`). Phone sideload + TestFlight export: [MOBILE_RELEASE.md](./MOBILE_RELEASE.md).
+India NIC/ULIP/WhatsApp/FASTag stay demo until hub env keys are set — then routes go live ([INTEGRATIONS.md](./INTEGRATIONS.md)). Postgres with `DATABASE_URL` hydrates `app_snapshots` (`store: postgres+json-cache`). Phone sideload + TestFlight export: [MOBILE_RELEASE.md](./MOBILE_RELEASE.md).
 
 Full gap analysis: `reports/Tracko UAT remaining gaps.md`.
