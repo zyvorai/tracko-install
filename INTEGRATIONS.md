@@ -26,8 +26,6 @@ Demo adapters work out of the box. Set credentials to leave demo — status on `
 | Push (Android) | `FCM_PROJECT_ID`, `FCM_SERVICE_ACCOUNT_FILE` (service-account JSON path) | FCM HTTP v1; the hub signs the OAuth assertion itself. Unverified against Google: tested only against a local stub |
 | Push (iOS) | `APNS_KEY_FILE` (.p8), `APNS_KEY_ID`, `APNS_TEAM_ID`, `APNS_TOPIC` (bundle id), optional `APNS_SANDBOX=1` | APNs token auth over HTTP/2. Unverified against Apple: tested only against a local stub |
 
-Windows Setup.exe: see DESKTOP_RELEASE.md (`./scripts/publish-windows-from-ci.sh --latest`).
-
 ## Postgres source of truth
 
 With `DATABASE_URL` set:

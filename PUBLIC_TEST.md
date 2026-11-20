@@ -22,13 +22,6 @@ Welcome. This is a **public beta** of the Tracko desktop + phone install. Source
    - Scanner `/scanner/?pair=SCAN-DEMO`  
    - Carrier / portal `/app/` · tenders `TND-DEMO`
 
-### Windows
-
-```powershell
-irm https://zyvorai.github.io/tracko-install/install.ps1 | iex
-```
-
-`install.ps1` downloads Setup when `downloads/Tracko-TMS-Setup-x64.exe` is published. Until then Mac + hub PWAs are the public path.
 
 ## What to expect
 

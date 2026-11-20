@@ -6,13 +6,12 @@
 
 <p align="center">
   <strong>Freight, finally clear.</strong><br />
-  Logistics TMS for India · Public beta · Private source
+  Logistics TMS for India · Mac only · 30-day trial · Private source
 </p>
 
 <p align="center">
   <a href="https://zyvorai.github.io/tracko-install/"><img alt="Public beta" src="https://img.shields.io/badge/public%20beta-0.3.0-0071e3?style=flat-square" /></a>
   <img alt="macOS" src="https://img.shields.io/badge/macOS-Apple%20Silicon-black?style=flat-square" />
-  <img alt="Windows" src="https://img.shields.io/badge/Windows-PowerShell-0078d4?style=flat-square" />
   <img alt="Source" src="https://img.shields.io/badge/source-private-6e6e73?style=flat-square" />
 </p>
 
@@ -42,12 +41,6 @@ Apple-clean landing. Muse-style **one command**, plus Mac DMG and phone IPA/APK 
 curl -fsSL https://zyvorai.github.io/tracko-install/install.sh | bash
 ```
 
-**Windows** (PowerShell)
-
-```powershell
-irm https://zyvorai.github.io/tracko-install/install.ps1 | iex
-```
-
 Then: **Server / Settings** → your hub (`http://127.0.0.1:8080` or LAN).
 
 ---
@@ -71,7 +64,6 @@ Then: **Server / Settings** → your hub (`http://127.0.0.1:8080` or LAN).
 |---------|--------|
 | Mac DMG via `install.sh` + Downloads | Live |
 | Phone IPA/APK sideload | Live (UDID); TestFlight export ready |
-| Windows Setup via `install.ps1` | Script ready · artifact when published |
 | Realtime map (hub) | Live |
 | India live rails | Env-gated — demo until credentials |
 | Postgres SoT | `DATABASE_URL` → `postgres+json-cache` |

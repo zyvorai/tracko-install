@@ -25,7 +25,6 @@ Positioning: best **private-install** TMS for mid-market carriers/3PLs/shippers 
 1. Hub: `./scripts/deploy-hub.sh --prod` (Postgres, `DEMO_MODE=false`, random `JWT_SECRET`, `RBAC_PASSWORD`; the hub starts empty with one admin) — see `DEPLOYMENT.md` and OPS.md
 2. Set NIC/ULIP/WhatsApp/FASTag/Tally/Razorpay per INTEGRATIONS.md when buyer credentials exist (`/health` → `integrations`)
 3. Optional: `TRACKO_STORE_MODE=postgres` to force PG snapshot hydrate
-4. Run GitHub Action **Desktop Windows**, then `./scripts/publish-windows-from-ci.sh --latest`
 5. Phones: sideload IPA/APK or `EXPORT_METHOD=app-store` + TestFlight — MOBILE_RELEASE.md
 6. Apple notarize secrets on **Desktop macOS** workflow
 7. TLS via Caddy/ingress in front of API + install host
