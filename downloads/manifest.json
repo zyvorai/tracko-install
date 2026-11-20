@@ -1,0 +1,37 @@
+{
+  "product": "Tracko TMS",
+  "version": "0.2.0",
+  "world_class": "0.3.0",
+  "platforms": {
+    "macos-arm64": {
+      "file": "Tracko-TMS-0.2.0-aarch64.dmg",
+      "url": "https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/Tracko-TMS-0.2.0-aarch64.dmg",
+      "label": "Mac (Apple Silicon)",
+      "command": "curl -fsSL {base}/install.sh | bash",
+      "notes": "Notarized DMG. The v0.2.0 release has no asset attached yet; email sales@zyvor.dev for the build.",
+      "public_binary": true
+    }
+  },
+  "api_default": "http://localhost:8080",
+  "phones": {
+    "scanner": "http://127.0.0.1:5176/?pair=SCAN-DEMO",
+    "driver": "http://127.0.0.1:5175/",
+    "apk_status": "debug_apk_published",
+    "driver_apk": "Tracko-Driver.apk",
+    "scanner_apk": "Tracko-Scanner.apk",
+    "driver_apk_published": true,
+    "scanner_apk_published": true,
+    "driver_ipa": "Tracko-Driver.ipa",
+    "scanner_ipa": "Tracko-Scanner.ipa",
+    "driver_ipa_published": true,
+    "scanner_ipa_published": true,
+    "ios_note": "Development/ad-hoc IPA \u2014 install via Xcode Devices / Apple Configurator; UDID must be registered on NX667LTDQ2"
+  },
+  "pilot": {
+    "status": "ready",
+    "api_version": "0.3.0",
+    "plan": "world_class",
+    "desktop_build": "0.2.0"
+  },
+  "distribution": "homepage_downloads_and_install_command"
+}
