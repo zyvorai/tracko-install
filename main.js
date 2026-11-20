@@ -49,7 +49,7 @@ function setOs(os) {
   }
   const heroHint = document.getElementById('hero-hint');
   if (heroHint) {
-    heroHint.textContent = 'macOS Apple Silicon · Mac only · 30-day trial key';
+    heroHint.textContent = 'macOS Apple Silicon · 30-day trial key works on every device (hub + browser)';
   }
   const eyebrow = document.getElementById('hero-eyebrow');
   if (eyebrow) {

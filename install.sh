@@ -16,6 +16,7 @@ echo
 
 if [[ "$OS" != "Darwin" ]]; then
   echo "This script installs the macOS Apple Silicon DMG. Tracko desktop is Mac only."
+  echo "On Windows or Linux, open Tracko in your browser against your hub; the same 30-day trial key works (sales@zyvor.dev)."
   exit 1
 fi
 
@@ -30,7 +31,19 @@ DMG_PATH="$TMP_DIR/$DMG_NAME"
 URL="${TRACKO_DMG_URL:-https://github.com/zyvorai/tracko-install/releases/download/v0.2.0/$DMG_NAME}"
 
 echo "Downloading $URL"
-curl -fL --progress-bar "$URL" -o "$DMG_PATH"
+HTTP_CODE="$(curl -sL -o /dev/null -w '%{http_code}' --head "$URL" 2>/dev/null || true)"
+if [[ "$HTTP_CODE" == "404" ]]; then
+  echo "The Tracko DMG is not published yet (HTTP 404): $URL"
+  echo "Email sales@zyvor.dev for the build, or set TRACKO_DMG_URL to a DMG you already have."
+  rm -rf "$TMP_DIR"
+  exit 1
+fi
+if ! curl -fL --progress-bar "$URL" -o "$DMG_PATH"; then
+  echo "Download failed: $URL"
+  echo "Check your network, or email sales@zyvor.dev for the build."
+  rm -rf "$TMP_DIR"
+  exit 1
+fi
 
 echo "Mounting DMG…"
 # Fixed mountpoint avoids awk breaking on volume names with spaces (e.g. "Tracko TMS").
